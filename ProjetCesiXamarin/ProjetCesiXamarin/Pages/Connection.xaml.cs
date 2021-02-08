@@ -15,6 +15,7 @@ namespace ProjetCesiXamarin.Pages
         public Connection()
         {
             InitializeComponent();
+            BindingContext = App.Locator.ConnectionViewModel;
         }
     }
 }

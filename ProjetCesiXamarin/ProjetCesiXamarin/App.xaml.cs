@@ -26,12 +26,12 @@ namespace ProjetCesiXamarin
 
             NavigationService navigationService = new NavigationService();
 
-            navigationService.Configure("Inscription", typeof(Connection));
-            navigationService.Configure("Home", typeof(Inscription));
+            navigationService.Configure("Home", typeof(Connection));
+            navigationService.Configure("Inscription", typeof(Inscription));
 
             SimpleIoc.Default.Register<INavigationService>(() => navigationService);
 
-            var firstPage = new NavigationPage(new Inscription());
+            var firstPage = new NavigationPage(new Connection());
             navigationService.Initialize(firstPage);
             MainPage = firstPage;
         }

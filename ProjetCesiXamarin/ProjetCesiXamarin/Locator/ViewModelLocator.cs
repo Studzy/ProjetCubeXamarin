@@ -13,6 +13,7 @@ namespace ProjetCesiXamarin.Locator
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
             SimpleIoc.Default.Register<InscriptionViewModel>();
+            SimpleIoc.Default.Register<ConnectionViewModel>();
         }
 
         public InscriptionViewModel InscriptionViewModel
@@ -20,6 +21,13 @@ namespace ProjetCesiXamarin.Locator
             get
             {
                 return ServiceLocator.Current.GetInstance<InscriptionViewModel>();
+            }
+        }
+        public ConnectionViewModel ConnectionViewModel
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ConnectionViewModel>();
             }
         }
     }
