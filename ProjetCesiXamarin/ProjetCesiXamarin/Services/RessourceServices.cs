@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using ProjetCesiXamarin.Constant;
 using ProjetCesiXamarin.Models;
 using System;
 using System.Collections.Generic;
@@ -23,16 +24,16 @@ namespace ProjetCesiXamarin.Services
         /// </summary>
         /// <param name="uri"></param>
         /// <returns></returns>
-        public async Task<RessourceData> GetRessourceByIdAsync(string uri)
+        public async Task<RessourceData> GetRessourceByIdAsync(int id)
         {
-            RessourceData OpenWeatherData = null;
+            RessourceData ressource = null;
             try
             {
-                HttpResponseMessage response = await _client.GetAsync(uri);
+                HttpResponseMessage response = await _client.GetAsync(ApiProjetCesiConstants.ApiProjetCesiEndpoint + "/RessourceAPI/" + id);
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-                    OpenWeatherData = JsonConvert.DeserializeObject<RessourceData>(content);
+                    ressource = JsonConvert.DeserializeObject<BaseResponse<RessourceData>>(content).Data;
                 }
             }
             catch (Exception ex)
@@ -40,7 +41,7 @@ namespace ProjetCesiXamarin.Services
                 Debug.WriteLine("\tERROR {0}", ex.Message);
             }
 
-            return OpenWeatherData;
+            return ressource;
         }
     }
 }
