@@ -24,11 +24,11 @@
                                                 <Grid.RowDefinitions>
                                                     <RowDefinition Height="Auto"/>
                                                     <RowDefinition Height="Auto"/>
-                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="80"/>
                                                 </Grid.RowDefinitions>
                                                 <Label Grid.Row="1" Text="{Binding Titre}" TextColor="Black" FontSize="20" FontAttributes="Bold" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Margin="10"  />
                                                 <controls:HtmlLabel Grid.Row="2" Text="{Binding Apercu}" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" Margin="10" TextColor="Black"/>
-                                                <Button Grid.Row="3" CommandParameter="{Binding}" Command="{Binding Source={x:Reference AccueilView}, Path=BindingContext.TappedItemCommand}" Text="Voir" />
+                                                <Button Grid.Row="3" CommandParameter="{Binding}" Command="{Binding Source={x:Reference AccueilView}, Path=BindingContext.TappedItemCommand}" Text="Voir" HeightRequest="1" />
                                             </Grid>
                                         </ScrollView>
                                     </pancakeview:PancakeView>
@@ -62,11 +62,11 @@
                                                 <Grid.RowDefinitions>
                                                     <RowDefinition Height="Auto"/>
                                                     <RowDefinition Height="Auto"/>
-                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="80"/>
                                                 </Grid.RowDefinitions>
                                                 <Label Grid.Row="1" Text="{Binding Titre}" TextColor="Black" FontSize="20" FontAttributes="Bold" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Margin="10"  />
                                                 <controls:HtmlLabel Grid.Row="2" Text="{Binding Apercu}" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" Margin="10" TextColor="Black"/>
-                                                <Button Grid.Row="3" CommandParameter="{Binding}" Command="{Binding Source={x:Reference AccueilView}, Path=BindingContext.TappedItemCommand}" Text="Voir" />
+                                                <Button Grid.Row="3" CommandParameter="{Binding}" Command="{Binding Source={x:Reference AccueilView}, Path=BindingContext.TappedItemCommand}" Text="Voir" HeightRequest="1"/>
                                             </Grid>
                                         </ScrollView>
                                     </pancakeview:PancakeView>

@@ -49,5 +49,13 @@ namespace ProjetCesiXamarin.Locator
                 return ServiceLocator.Current.GetInstance<RessourceViewModel>();
             }
         }
+
+        public GestionAdminViewModel GestionAdminViewModel
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<GestionAdminViewModel>();
+            }
+        }
     }
 }
