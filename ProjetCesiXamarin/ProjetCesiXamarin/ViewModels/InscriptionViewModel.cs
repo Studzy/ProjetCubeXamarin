@@ -3,12 +3,14 @@ using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Views;
 using ProjetCesiXamarin.Constant;
 using ProjetCesiXamarin.Models;
+using ProjetCesiXamarin.Pages;
 using ProjetCesiXamarin.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace ProjetCesiXamarin.ViewModels
 {
@@ -54,12 +56,22 @@ namespace ProjetCesiXamarin.ViewModels
                     registerData.ConfirmPassword = PasswordConfirm;
 
                     var ResultRegister = await _registerService.Register(GenerateRequestUri(ApiProjetCesiConstants.ApiProjetCesiEndpoint), registerData);
+
+                    if (ResultRegister)
+                    {
+                        //Application.Current.MainPage = new Connection();
+                        //await Shell.Current.GoToAsync("//Pages/Connection");
+                        //await Shell.Current.GoToAsync($"{nameof(Connection)}");
+                        await Shell.Current.GoToAsync("//Connection");
+                    }
+
                 }
             }
             else
             {
                 //Temperature = "No Internet";
                 //ColorText = "Red";
+                
 
             }
 
