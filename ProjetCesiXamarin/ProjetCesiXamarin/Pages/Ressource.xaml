@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:XamForms.HtmlLabel;assembly=XamForms.HtmlLabel"
+             x:Class="ProjetCesiXamarin.Pages.Ressource">
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="{Binding Ressource.Titre}" TextColor="White" FontSize="20" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Margin="10"  />
+            <controls:HtmlLabel Text="{Binding Ressource.Contenu}" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" Margin="10" TextColor="White"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

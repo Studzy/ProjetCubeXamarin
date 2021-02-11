@@ -10,12 +10,12 @@ using Xamarin.Forms.Xaml;
 namespace ProjetCesiXamarin.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Connection : ContentPage
+    public partial class Accueil : ContentPage
     {
-        public Connection()
+        public Accueil()
         {
             InitializeComponent();
-            BindingContext = App.Locator.ConnectionViewModel;
+            BindingContext = App.Locator.AccueilViewModel;
         }
     }
 }
