@@ -12,7 +12,9 @@
                FlyoutDisplayOptions="AsMultipleItems">
 
         <Tab Icon="Login.png" Title="Se connecter">
-            <ShellContent ContentTemplate="{DataTemplate local:Connection}"/>
+            <ShellContent 
+                Route="Connection"
+                ContentTemplate="{DataTemplate local:Connection}"/>
         </Tab>
 
 
@@ -23,10 +25,25 @@
                FlyoutDisplayOptions="AsMultipleItems">
 
         <Tab Icon="Register.png" Title="Inscription">
-            <ShellContent ContentTemplate="{DataTemplate local:Inscription}"/>
+            <ShellContent 
+                Route="Inscription"
+                ContentTemplate="{DataTemplate local:Inscription}"/>
         </Tab>
 
     </FlyoutItem>
+    <FlyoutItem Title="Projet CUBE"
+               Shell.TabBarIsVisible="False"
+               FlyoutDisplayOptions="AsMultipleItems">
 
-    <ShellContent Title="About" Icon="About.png" ContentTemplate="{DataTemplate local:AccueilPage}"/>
+        <Tab Icon="About.png" Title="Ressource" FlyoutItem.IsVisible="False">
+            <ShellContent 
+                Route="Ressource"
+                ContentTemplate="{DataTemplate local:Ressource}"/>
+        </Tab>
+
+
+
+    </FlyoutItem>
+
+    <ShellContent Title="Accueil" Icon="About.png" ContentTemplate="{DataTemplate local:Accueil}"/>
 </Shell>

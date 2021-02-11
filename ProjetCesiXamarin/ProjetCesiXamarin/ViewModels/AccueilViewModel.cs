@@ -1,15 +1,18 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Views;
+using Newtonsoft.Json;
 using ProjetCesiXamarin.Models;
 using ProjetCesiXamarin.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace ProjetCesiXamarin.ViewModels
 {
@@ -42,7 +45,10 @@ namespace ProjetCesiXamarin.ViewModels
         {
             var ressourceComplete = await new RessourceServices().GetRessourceByIdAsync(ressource.Id);
 
-            _navigationService.NavigateTo("Ressource", ressourceComplete);
+            //_navigationService.NavigateTo("Ressource", ressourceComplete);
+            //await Shell.Current.GoToAsync("//Ressource", ressourceComplete);
+            var RessourceSerialized = JsonConvert.SerializeObject(ressourceComplete);
+            await Shell.Current.GoToAsync($"//Ressource?ressourceComplete={RessourceSerialized}");
         }
 
         public ObservableCollection<RessourceAccueil> DerniereRessources

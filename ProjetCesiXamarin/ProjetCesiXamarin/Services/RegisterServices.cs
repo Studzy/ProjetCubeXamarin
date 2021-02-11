@@ -33,6 +33,8 @@ namespace ProjetCesiXamarin.Services
                 HttpResponseMessage response = await _client.PostAsync(uri, content);
                 if (response.IsSuccessStatusCode)
                 {
+                    string resultat = await response.Content.ReadAsStringAsync();
+                    var data = JsonConvert.DeserializeObject<BaseResponse<LoginResponse>>(resultat);
                     //string content = await response.Content.ReadAsStringAsync();
                     //Register = JsonConvert.DeserializeObject<RegisterData>(content);
                     result = true;
