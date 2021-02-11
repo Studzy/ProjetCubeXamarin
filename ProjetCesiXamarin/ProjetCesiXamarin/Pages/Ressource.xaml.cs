@@ -18,10 +18,10 @@ namespace ProjetCesiXamarin.Pages
             InitializeComponent();
             BindingContext = App.Locator.RessourceViewModel;
         }
-        public Ressource(RessourceData ressource)
+        public Ressource(RessourceData ressourceComplete)
         {
             InitializeComponent();
-            App.Locator.RessourceViewModel.Ressource = ressource;
+            App.Locator.RessourceViewModel.Ressource = ressourceComplete;
             BindingContext = App.Locator.RessourceViewModel;
         }
     }
