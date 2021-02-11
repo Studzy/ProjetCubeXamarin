@@ -7,6 +7,26 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="{Binding Ressource.Titre}" TextColor="White" FontSize="20" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Margin="10"  />
+            <StackLayout Orientation="Horizontal">
+                <StackLayout.Triggers>
+                    <DataTrigger TargetType="StackLayout" Binding="{Binding IsUserConnected}" Value="False">
+                        <Setter Property="IsVisible" Value="False" />
+                    </DataTrigger>
+                    <DataTrigger TargetType="StackLayout" Binding="{Binding IsUserConnected}" Value="True">
+                        <Setter Property="IsVisible" Value="True" />
+                    </DataTrigger>
+                </StackLayout.Triggers>
+
+                <!--<Label Text="{Binding Categorie}"/>
+                <Label Text="{Binding TypeRessource}"/>
+                <ListView ItemsSource="{Binding Ressource.TypeRelations}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Label Text="{Binding Nom}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>-->
+            </StackLayout>
             <controls:HtmlLabel Text="{Binding Ressource.Contenu}" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" Margin="10" TextColor="White"/>
         </StackLayout>
     </ContentPage.Content>

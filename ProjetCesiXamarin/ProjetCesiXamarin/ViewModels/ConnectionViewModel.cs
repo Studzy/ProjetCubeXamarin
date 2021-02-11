@@ -45,14 +45,8 @@ namespace ProjetCesiXamarin.ViewModels
                     loginData.Username = Username;
                     loginData.Password = Password;
 
-                    var ResultRegister = await _accountService.Login(loginData);
+                    var resultRegister = await _accountService.Login(loginData);
                 }
-             }
-            else
-            {
-                //Temperature = "No Internet";
-                //ColorText = "Red";
-
             }
         }
 

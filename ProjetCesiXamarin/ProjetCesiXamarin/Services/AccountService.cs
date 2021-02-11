@@ -40,6 +40,8 @@ namespace ProjetCesiXamarin.Services
                     var data = JsonConvert.DeserializeObject<BaseResponse<LoginResponse>>(resultat);
 
                     await SecureStorage.SetAsync("token", data.Data.AccessToken);
+                    await SecureStorage.SetAsync("expiration", data.Data.Expiration.Ticks.ToString());
+                    await SecureStorage.SetAsync("username", data.Data.User.UserName);
                     await SecureStorage.SetAsync("user", JsonConvert.SerializeObject(data.Data.User));
 
                     result = true;
