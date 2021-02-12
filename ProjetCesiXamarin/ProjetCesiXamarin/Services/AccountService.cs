@@ -12,15 +12,8 @@ using Xamarin.Essentials;
 
 namespace ProjetCesiXamarin.Services
 {
-    public class AccountService
+    public class AccountService : BaseService
     {
-        HttpClient _client;
-
-        public AccountService()
-        {
-            _client = new HttpClient();
-        }
-
         /// <summary>
         /// Appel l'API pour s'inscrire
         /// </summary>
@@ -33,7 +26,7 @@ namespace ProjetCesiXamarin.Services
             StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
             try
             {
-                HttpResponseMessage response = await _client.PostAsync(ApiProjetCesiConstants.ApiProjetCesiEndpoint + "/Auth/Login", content);
+                HttpResponseMessage response = await HttpClient.PostAsync("api/Auth/Login", content);
                 if (response.IsSuccessStatusCode)
                 {
                     string resultat = await response.Content.ReadAsStringAsync();

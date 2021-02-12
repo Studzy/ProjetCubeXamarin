@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ProjetCesiXamarin.Pages"
+             x:Class="ProjetCesiXamarin.Pages.MainPage">
+    
+    <Shell.FlyoutHeader>
+        <local:HeaderContentView/>
+    </Shell.FlyoutHeader>
+    <FlyoutItem Title="Projet CUBE"
+               Shell.TabBarIsVisible="False"
+               FlyoutDisplayOptions="AsMultipleItems">
+
+        <Tab Title="{Binding UserName}">
+            <ShellContent 
+                Route="Connection"
+                ContentTemplate="{DataTemplate local:Connection}"/>
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem Title="Projet CUBE"
+               Shell.TabBarIsVisible="False"
+               FlyoutDisplayOptions="AsMultipleItems">
+
+        <Tab Icon="Login.png" Title="Se connecter">
+            <ShellContent 
+                Route="Connection"
+                ContentTemplate="{DataTemplate local:Connection}"/>
+        </Tab>
+    </FlyoutItem>    
+    <FlyoutItem Title="Projet CUBE"
+               Shell.TabBarIsVisible="False"
+               FlyoutDisplayOptions="AsMultipleItems">
+
+        <Tab Icon="Register.png" Title="Inscription">
+            <ShellContent 
+                Route="Inscription"
+                ContentTemplate="{DataTemplate local:Inscription}"/>
+        </Tab>
+
+    </FlyoutItem>
+    <FlyoutItem Title="Projet CUBE"
+               Shell.TabBarIsVisible="False"
+               FlyoutDisplayOptions="AsMultipleItems">
+
+        <Tab Icon="About.png" Title="Ressource" FlyoutItem.IsVisible="False">
+            <ShellContent 
+                Route="Ressource"
+                ContentTemplate="{DataTemplate local:Ressource}"/>
+        </Tab>
+
+
+
+    </FlyoutItem>
+
+    <ShellContent Title="Accueil" Icon="About.png" ContentTemplate="{DataTemplate local:Accueil}"/>
+</Shell>

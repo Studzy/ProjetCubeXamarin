@@ -22,8 +22,8 @@
 
 
                     <Entry Margin="0,30,0,0" x:Name="Username" FlexLayout.AlignSelf="Stretch" FontSize="20" Placeholder="Username"  Text="{Binding Username}"></Entry>
-                    <Entry x:Name="password" FontSize="20" Placeholder="Mot de passe" FlexLayout.AlignSelf="Stretch"  Text="{Binding Password}"></Entry>
-                    <Entry x:Name="Confirmpassword" FontSize="20" Placeholder="Confirmer mot de passe" FlexLayout.AlignSelf="Stretch"  Text="{Binding PasswordConfirm}"></Entry>
+                    <Entry x:Name="password" IsPassword="True" FontSize="20" Placeholder="Mot de passe" FlexLayout.AlignSelf="Stretch"  Text="{Binding Password}"></Entry>
+                    <Entry x:Name="Confirmpassword" IsPassword="True" FontSize="20" Placeholder="Confirmer mot de passe" FlexLayout.AlignSelf="Stretch"  Text="{Binding PasswordConfirm}"></Entry>
                     <Entry x:Name="Email" FontSize="20" Placeholder="Email" FlexLayout.AlignSelf="Stretch"  Text="{Binding Email}"></Entry>
                     <Button Margin="0,10,0,0" x:Name="signUp" FontSize="Medium" TextColor="White" BorderColor="Black" BackgroundColor="#00b33c"  CornerRadius="25" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand" Text="Créer"
                             CommandParameter="{Binding .}"

@@ -10,15 +10,8 @@ using System.Threading.Tasks;
 
 namespace ProjetCesiXamarin.Services
 {
-    public class RessourceServices
+    public class RessourceServices : BaseService
     {
-        HttpClient _client;
-
-        public RessourceServices()
-        {
-            _client = new HttpClient();
-        }
-
         /// <summary>
         /// Appel l'API pour recuperer une ressource par son ID
         /// </summary>
@@ -29,7 +22,7 @@ namespace ProjetCesiXamarin.Services
             RessourceData ressource = null;
             try
             {
-                HttpResponseMessage response = await _client.GetAsync(ApiProjetCesiConstants.ApiProjetCesiEndpoint + "/RessourceAPI/" + id);
+                HttpResponseMessage response = await HttpClient.GetAsync("/RessourceAPI/" + id);
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();

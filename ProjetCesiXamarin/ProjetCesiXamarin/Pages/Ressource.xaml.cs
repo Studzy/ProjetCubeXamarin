@@ -19,13 +19,13 @@ namespace ProjetCesiXamarin.Pages
             InitializeComponent();
             BindingContext = App.Locator.RessourceViewModel;
         }
-        public Ressource(RessourceData ressource)
+        public Ressource(RessourceData ressourceComplete)
         {
             InitializeComponent();
-            App.Locator.RessourceViewModel.Ressource = ressource;
-            App.Locator.RessourceViewModel.Categorie = ressource.Categorie.Nom;
-            App.Locator.RessourceViewModel.TypeRessource = ressource.TypeRessource.Nom;
-            App.Locator.RessourceViewModel.TypeRelations = ressource.TypeRelations.Select(c => c.Nom).ToList();
+            App.Locator.RessourceViewModel.Ressource = ressourceComplete;
+            App.Locator.RessourceViewModel.Categorie = ressourceComplete.Categorie.Nom;
+            App.Locator.RessourceViewModel.TypeRessource = ressourceComplete.TypeRessource.Nom;
+            App.Locator.RessourceViewModel.TypeRelations = ressourceComplete.TypeRelations.Select(c => c.Nom).ToList();
             BindingContext = App.Locator.RessourceViewModel;
         }
     }

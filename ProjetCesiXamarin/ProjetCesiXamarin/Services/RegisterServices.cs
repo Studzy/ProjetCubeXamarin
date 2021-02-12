@@ -9,15 +9,8 @@ using System.Threading.Tasks;
 
 namespace ProjetCesiXamarin.Services
 {
-    public class RegisterServices
+    public class RegisterServices : BaseService
     {
-        HttpClient _client;
-
-        public RegisterServices()
-        {
-            _client = new HttpClient();
-        }
-
         /// <summary>
         /// Appel l'API pour s'inscrire
         /// </summary>
@@ -30,9 +23,11 @@ namespace ProjetCesiXamarin.Services
             StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
             try
             {
-                HttpResponseMessage response = await _client.PostAsync(uri, content);
+                HttpResponseMessage response = await HttpClient.PostAsync(uri, content);
                 if (response.IsSuccessStatusCode)
                 {
+                    string resultat = await response.Content.ReadAsStringAsync();
+                    var data = JsonConvert.DeserializeObject<BaseResponse<LoginResponse>>(resultat);
                     //string content = await response.Content.ReadAsStringAsync();
                     //Register = JsonConvert.DeserializeObject<RegisterData>(content);
                     result = true;

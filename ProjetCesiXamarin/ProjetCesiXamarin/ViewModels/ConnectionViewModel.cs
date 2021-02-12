@@ -7,8 +7,10 @@ using ProjetCesiXamarin.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace ProjetCesiXamarin.ViewModels
 {
@@ -23,19 +25,18 @@ namespace ProjetCesiXamarin.ViewModels
         public ConnectionViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
-            NavigateToInscriptionCommand = new RelayCommand(() => NavigateToInscription());
+            NavigateToInscriptionCommand = new RelayCommand(async () => await NavigateToInscription());
             LoginUserCommand = new RelayCommand(() => Login());
         }
 
-        public void NavigateToInscription()
+        public async Task NavigateToInscription()
         {
-            _navigationService.NavigateTo("Inscription");
+            //_navigationService.NavigateTo("Inscription");
+            await Shell.Current.GoToAsync("//Inscription");
         }
 
         async void Login()
         {
-            var test = await SecureStorage.GetAsync("token");
-
             LoginData loginData = new LoginData();
             var current = Connectivity.NetworkAccess;
             if (current == NetworkAccess.Internet)
