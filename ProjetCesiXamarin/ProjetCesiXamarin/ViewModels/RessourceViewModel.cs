@@ -1,29 +1,51 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Views;
 using ProjetCesiXamarin.Models;
+using ProjetCesiXamarin.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace ProjetCesiXamarin.ViewModels
 {
+    [QueryProperty(nameof(RessourceId), nameof(RessourceId))]
     public class RessourceViewModel : ViewModelBase
     {
-        private readonly INavigationService _navigationService;
-
         public RessourceData _ressource;
         private string _categorie;
         private string _typeRessource;
-        private List<string> _typeRelations;
+        private ObservableCollection<TypeRelationData> _typeRelations;
         public bool _isUserConnected;
+        private string _ressourceId;
 
-        public RessourceViewModel(INavigationService navigationService)
+        public string RessourceId
         {
-            _navigationService = navigationService;
+            get => _ressourceId;
+            set
+            {
+                _ressourceId = value;
 
+                Task.Run(new Func<Task>(async () =>
+                {
+                    var ressourceComplete = await new RessourceServices().GetRessourceByIdAsync(int.Parse(_ressourceId));
+
+                    Ressource = ressourceComplete;
+                    Categorie = ressourceComplete.Categorie.Nom;
+                    TypeRessource = ressourceComplete.TypeRessource.Nom;
+                    TypeRelations = new ObservableCollection<TypeRelationData>(ressourceComplete.TypeRelations);
+                }));
+
+                RaisePropertyChanged();
+            }
+        }
+
+        public RessourceViewModel()
+        {
             Task.Factory.StartNew(new Func<Task>(async () => await CheckUserIsConnected())).Unwrap().Wait();
         }
 
@@ -75,7 +97,7 @@ namespace ProjetCesiXamarin.ViewModels
             }
         }
 
-        public List<string> TypeRelations
+        public ObservableCollection<TypeRelationData> TypeRelations
         {
             get { return _typeRelations; }
             set

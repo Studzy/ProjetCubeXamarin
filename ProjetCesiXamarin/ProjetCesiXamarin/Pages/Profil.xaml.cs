@@ -1,8 +1,5 @@
-﻿using ProjetCesiXamarin.Models;
-using ProjetCesiXamarin.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,14 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace ProjetCesiXamarin.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Ressource : ContentPage
+    public partial class Profil : ContentPage
     {
-
-        public Ressource()
+        public Profil()
         {
             InitializeComponent();
-
-            BindingContext = new RessourceViewModel();
         }
     }
 }

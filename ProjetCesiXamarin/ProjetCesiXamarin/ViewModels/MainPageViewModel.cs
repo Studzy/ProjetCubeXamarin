@@ -3,6 +3,7 @@ using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Views;
 using Newtonsoft.Json;
 using ProjetCesiXamarin.Models;
+using ProjetCesiXamarin.Pages;
 using ProjetCesiXamarin.Services;
 using System;
 using System.Collections.Generic;
@@ -20,12 +21,27 @@ namespace ProjetCesiXamarin.ViewModels
         private readonly INavigationService _navigationService;
 
         private string _userName;
+        private bool _userIsConnected;
+
+        public ICommand LoggoutCommand { get; set; }
 
         public MainPageViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
 
+            LoggoutCommand = new RelayCommand(() => Loggout());
             Task.Factory.StartNew(new Func<Task>(async () => await InitData())).Unwrap().Wait();
+
+            Routing.RegisterRoute("ressource", typeof(Ressource));
+        }
+
+        private void Loggout()
+        {
+            SecureStorage.Remove("token");
+            SecureStorage.Remove("expiration");
+            SecureStorage.Remove("username");
+
+            UserName = null;
         }
 
         async Task InitData()
@@ -45,12 +61,28 @@ namespace ProjetCesiXamarin.ViewModels
                         SecureStorage.Remove("token");
                         SecureStorage.Remove("expiration");
                         SecureStorage.Remove("username");
+                        UserIsConnected = false;
                     }
                     else
                     {
                         UserName = username;
+                        UserIsConnected = true;
                     }
                 }
+                else
+                {
+                    UserIsConnected = false;
+                }
+            }
+        }
+
+        public bool UserIsConnected
+        {
+            get { return _userIsConnected; }
+            set
+            {
+                _userIsConnected = value;
+                RaisePropertyChanged();
             }
         }
 

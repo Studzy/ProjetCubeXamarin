@@ -4,6 +4,8 @@ using ProjetCesiXamarin.Locator;
 using ProjetCesiXamarin.Pages;
 using ProjetCesiXamarin.Services;
 using System;
+using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -34,11 +36,11 @@ namespace ProjetCesiXamarin
 
             SimpleIoc.Default.Register<INavigationService>(() => navigationService);
 
-            var firstPage = new NavigationPage(new Connection());
+            var firstPage = new NavigationPage(new Accueil());
             navigationService.Initialize(firstPage);
             //MainPage = firstPage;
-            MainPage = new MainPage();
 
+            MainPage = new MainPage();
         }
 
         protected override void OnStart()

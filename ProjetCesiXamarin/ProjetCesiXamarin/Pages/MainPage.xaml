@@ -1,28 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Shell xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:ProjetCesiXamarin.Pages"
-             x:Class="ProjetCesiXamarin.Pages.MainPage">
-    
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:ProjetCesiXamarin.Pages"
+       x:Class="ProjetCesiXamarin.Pages.MainPage"
+       Title="Ressources Relationnelles">
+
     <Shell.FlyoutHeader>
         <local:HeaderContentView/>
     </Shell.FlyoutHeader>
     <FlyoutItem Title="Projet CUBE"
                Shell.TabBarIsVisible="False"
                FlyoutDisplayOptions="AsMultipleItems">
-
-        <Tab Title="{Binding UserName}">
-            <ShellContent 
-                Route="Connection"
-                ContentTemplate="{DataTemplate local:Connection}"/>
-        </Tab>
+        <ShellContent Title="{Binding UserName}"
+                    Route="Profil"
+                    ContentTemplate="{DataTemplate local:Profil}" />
+        <ShellContent Icon="Login.png" Title="Se connecter"
+                    Route="Connection"
+                    ContentTemplate="{DataTemplate local:Connection}"/>
+        <ShellContent Icon="Register.png" Title="Inscription"
+                    Route="Inscription"
+                    ContentTemplate="{DataTemplate local:Inscription}"/>
+        <ShellContent Icon="About.png" Title="Ressource" FlyoutItem.IsVisible="False"
+                    Route="Ressource"
+                    ContentTemplate="{DataTemplate local:Ressource}"/>
+        <ShellContent Title="Accueil" Icon="About.png" 
+                    Route="Accueil"
+                    ContentTemplate="{DataTemplate local:Accueil}"/>
     </FlyoutItem>
-    <FlyoutItem Title="Projet CUBE"
+    <!--<FlyoutItem Title="Projet CUBE"
                Shell.TabBarIsVisible="False"
                FlyoutDisplayOptions="AsMultipleItems">
 
         <Tab Icon="Login.png" Title="Se connecter">
-            <ShellContent 
+            <ShellContent Icon="Login.png" Title="Se connecter"
                 Route="Connection"
                 ContentTemplate="{DataTemplate local:Connection}"/>
         </Tab>
@@ -32,7 +42,7 @@
                FlyoutDisplayOptions="AsMultipleItems">
 
         <Tab Icon="Register.png" Title="Inscription">
-            <ShellContent 
+            <ShellContent Icon="Register.png" Title="Inscription"
                 Route="Inscription"
                 ContentTemplate="{DataTemplate local:Inscription}"/>
         </Tab>
@@ -43,14 +53,11 @@
                FlyoutDisplayOptions="AsMultipleItems">
 
         <Tab Icon="About.png" Title="Ressource" FlyoutItem.IsVisible="False">
-            <ShellContent 
+            <ShellContent Icon="About.png" Title="Ressource" FlyoutItem.IsVisible="False"
                 Route="Ressource"
                 ContentTemplate="{DataTemplate local:Ressource}"/>
         </Tab>
-
-
-
     </FlyoutItem>
 
-    <ShellContent Title="Accueil" Icon="About.png" ContentTemplate="{DataTemplate local:Accueil}"/>
+    <ShellContent Title="Accueil" Icon="About.png" ContentTemplate="{DataTemplate local:Accueil}"/>-->
 </Shell>
