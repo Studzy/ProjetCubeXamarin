@@ -22,7 +22,7 @@ namespace ProjetCesiXamarin.Services
             RessourceData ressource = null;
             try
             {
-                HttpResponseMessage response = await HttpClient.GetAsync("/RessourceAPI/" + id);
+                HttpResponseMessage response = await HttpClient.GetAsync("api/RessourceAPI/" + id);
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();

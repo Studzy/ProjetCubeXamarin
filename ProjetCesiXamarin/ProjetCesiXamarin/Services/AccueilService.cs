@@ -18,7 +18,7 @@ namespace ProjetCesiXamarin.Services
 
             try
             {
-                HttpResponseMessage response = await HttpClient.GetAsync("/AccueilAPI");
+                HttpResponseMessage response = await HttpClient.GetAsync("api/AccueilAPI");
 
                 if (response.IsSuccessStatusCode)
                 {
