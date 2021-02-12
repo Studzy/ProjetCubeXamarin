@@ -1,4 +1,5 @@
 ﻿using ProjetCesiXamarin.Models;
+using ProjetCesiXamarin.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,13 +17,7 @@ namespace ProjetCesiXamarin.Pages
         public Ressource()
         {
             InitializeComponent();
-            BindingContext = App.Locator.RessourceViewModel;
-        }
-        public Ressource(RessourceData ressourceComplete)
-        {
-            InitializeComponent();
-            App.Locator.RessourceViewModel.Ressource = ressourceComplete;
-            BindingContext = App.Locator.RessourceViewModel;
+            BindingContext = new RessourceViewModel();
         }
     }
 }

@@ -1,32 +1,35 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Views;
+using Newtonsoft.Json;
 using ProjetCesiXamarin.Models;
+using ProjetCesiXamarin.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace ProjetCesiXamarin.ViewModels
 {
-    public class RessourceViewModel : ViewModelBase
+    [QueryProperty(nameof(Ressource), nameof(Ressource))]
+    public class RessourceViewModel : BindableObject
     {
-        private readonly INavigationService _navigationService;
-
         public RessourceData _ressource;
-
-        public RessourceViewModel(INavigationService navigationService)
+        public RessourceViewModel()
         {
-            _navigationService = navigationService;
-        }
 
+        }
         public RessourceData Ressource
         {
             get { return _ressource; }
             set
             {
+
                 _ressource = value;
-                RaisePropertyChanged();
+                //RaisePropertyChanged();
+                OnPropertyChanged("Ressource");
             }
         }
+
     }
 }

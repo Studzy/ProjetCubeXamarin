@@ -6,8 +6,8 @@
     
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="{Binding Ressource.Titre}" TextColor="White" FontSize="20" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Margin="10"  />
-            <controls:HtmlLabel Text="{Binding Ressource.Contenu}" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" Margin="10" TextColor="White"/>
+            <Label Text="{Binding Ressource.Titre}" TextColor="Black" FontSize="20" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Margin="10"  />
+            <controls:HtmlLabel Text="{Binding Ressource.Contenu}" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" Margin="10" TextColor="Black"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
