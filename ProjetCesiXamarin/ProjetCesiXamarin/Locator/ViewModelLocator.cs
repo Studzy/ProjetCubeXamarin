@@ -16,6 +16,7 @@ namespace ProjetCesiXamarin.Locator
             SimpleIoc.Default.Register<ConnectionViewModel>();
             SimpleIoc.Default.Register<AccueilViewModel>();
             SimpleIoc.Default.Register<RessourceViewModel>();
+            SimpleIoc.Default.Register<MainPageViewModel>();
         }
 
         public InscriptionViewModel InscriptionViewModel
@@ -47,6 +48,14 @@ namespace ProjetCesiXamarin.Locator
             get
             {
                 return ServiceLocator.Current.GetInstance<RessourceViewModel>();
+            }
+        }
+
+        public MainPageViewModel MainPageViewModel
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<MainPageViewModel>();
             }
         }
     }

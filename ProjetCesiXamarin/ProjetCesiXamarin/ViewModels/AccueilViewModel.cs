@@ -45,7 +45,7 @@ namespace ProjetCesiXamarin.ViewModels
         private async Task NavigateToTappedItem(RessourceAccueil ressource)
         {
             Routing.RegisterRoute(nameof(Ressource), typeof(Ressource));
-            await Shell.Current.GoToAsync($"{nameof(Ressource)}?Content={ressource.Id}");
+            await Shell.Current.GoToAsync($"{nameof(Ressource)}?RessourceId={ressource.Id}");
         }
 
         public ObservableCollection<RessourceAccueil> DerniereRessources

@@ -2,6 +2,7 @@
 using ProjetCesiXamarin.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,9 +15,11 @@ namespace ProjetCesiXamarin.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Ressource : ContentPage
     {
+
         public Ressource()
         {
             InitializeComponent();
+
             BindingContext = new RessourceViewModel();
         }
     }
