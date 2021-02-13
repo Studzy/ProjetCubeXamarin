@@ -4,35 +4,49 @@
              xmlns:controls="clr-namespace:XamForms.HtmlLabel;assembly=XamForms.HtmlLabel"
              x:Class="ProjetCesiXamarin.Pages.Ressource">
 
-    <!--Pages can be added as references or inline-->
-    <ContentPage Title="Ressource">
-        <StackLayout>
-            <RefreshView Command="{Binding RefreshCommand}"
+    <ContentPage Title="Actions">
+        <RefreshView Command="{Binding RefreshCommand}"
             HorizontalOptions="FillAndExpand"
             IsRefreshing="{Binding IsRefreshing}"
             RefreshColor="Red"
             VerticalOptions="FillAndExpand" >
-                <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                    <StackLayout>
-                        <Label Text="{Binding Ressource.Titre}" TextColor="Black" FontSize="20" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Margin="10" />
-                        <Label Text="{Binding Categorie}" TextColor="Black" Margin="10"/>
-                        <Label Text="{Binding TypeRessource}" TextColor="Black" Margin="10"/>
-                        <controls:HtmlLabel Text="{Binding TypeRelations}" HorizontalOptions="StartAndExpand" VerticalOptions="Start" Margin="10"/>
-                        <StackLayout Orientation="Vertical" VerticalOptions="Start" BackgroundColor="LightCoral">
-                            <StackLayout.Triggers>
-                                <DataTrigger TargetType="StackLayout" Binding="{Binding IsUserConnected}" Value="False">
-                                    <Setter Property="IsVisible" Value="False" />
-                                </DataTrigger>
-                                <DataTrigger TargetType="StackLayout" Binding="{Binding IsUserConnected}" Value="True">
-                                    <Setter Property="IsVisible" Value="True" />
-                                </DataTrigger>
-                            </StackLayout.Triggers>
-                        </StackLayout>
-                        <controls:HtmlLabel Text="{Binding Ressource.Contenu}" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" Margin="10" TextColor="Black"/>
+            <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <StackLayout>
+                    <Label Text="{Binding Ressource.Titre}" TextColor="Black" FontSize="20" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Margin="10" />
+                    <StackLayout Orientation="Vertical" VerticalOptions="Start">
+                        <StackLayout.Triggers>
+                            <DataTrigger TargetType="StackLayout" Binding="{Binding IsUserConnected}" Value="False">
+                                <Setter Property="IsVisible" Value="False" />
+                            </DataTrigger>
+                            <DataTrigger TargetType="StackLayout" Binding="{Binding IsUserConnected}" Value="True">
+                                <Setter Property="IsVisible" Value="True" />
+                            </DataTrigger>
+                        </StackLayout.Triggers>
+                        <Button Text="Ajouter aux favoris" HorizontalOptions="CenterAndExpand" ImageSource="About.png" WidthRequest="600" BackgroundColor="CornflowerBlue" TextColor="Black"/>
+                        <Button Text="Ajouter aux ressources mise de côté" HorizontalOptions="CenterAndExpand" ImageSource="About.png" WidthRequest="600" BackgroundColor="Green" TextColor="Black"/>
+                        <Button Text="Ajouter aux ressources exploitées" HorizontalOptions="CenterAndExpand" ImageSource="About.png" WidthRequest="600" BackgroundColor="Red" TextColor="Black"/>
                     </StackLayout>
-                </ScrollView>
-            </RefreshView>
-        </StackLayout>
+                    <WebView VerticalOptions="FillAndExpand">
+                        <WebView.Source>
+                            <HtmlWebViewSource Html="{Binding Badges}"/>
+                        </WebView.Source>
+                    </WebView>
+                </StackLayout>
+            </ScrollView>
+        </RefreshView>
+    </ContentPage>
+    <ContentPage Title="Ressource">
+        <RefreshView Command="{Binding RefreshCommand}"
+            HorizontalOptions="FillAndExpand"
+            IsRefreshing="{Binding IsRefreshing}"
+            RefreshColor="Red"
+            VerticalOptions="FillAndExpand" >
+            <WebView VerticalOptions="FillAndExpand">
+                <WebView.Source>
+                    <HtmlWebViewSource Html="{Binding Ressource.Contenu}"/>
+                </WebView.Source>
+            </WebView>
+        </RefreshView>
     </ContentPage>
     <ContentPage Title="Commentaires" BackgroundColor="LightGray">
         <StackLayout>

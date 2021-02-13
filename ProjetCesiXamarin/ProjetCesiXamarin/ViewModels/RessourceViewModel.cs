@@ -23,6 +23,7 @@ namespace ProjetCesiXamarin.ViewModels
         private string _categorie;
         private string _typeRessource;
         private string _typeRelations;
+        private string _badges;
         private ObservableCollection<CommentaireData> _commentaires;
         public bool _isUserConnected;
         private string _ressourceId;
@@ -68,6 +69,8 @@ namespace ProjetCesiXamarin.ViewModels
             TypeRessource = ressourceComplete.TypeRessource.Nom;
             TypeRelations = ressourceComplete.TypeRelationsString;
             Commentaires = new ObservableCollection<CommentaireData>(ressourceComplete.Commentaires);
+
+            Badges = $"{Categorie}<br />{TypeRessource}<br />{TypeRelations}";
 
             IsRefreshing = false;
         }
@@ -118,6 +121,16 @@ namespace ProjetCesiXamarin.ViewModels
             set
             {
                 _typeRessource = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public string Badges
+        {
+            get { return _badges; }
+            set
+            {
+                _badges = value;
                 RaisePropertyChanged();
             }
         }
