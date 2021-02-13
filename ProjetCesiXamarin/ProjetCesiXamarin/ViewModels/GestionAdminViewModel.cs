@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
-using Xamarin.Forms;
 
 namespace ProjetCesiXamarin.ViewModels
 {
@@ -22,10 +21,9 @@ namespace ProjetCesiXamarin.ViewModels
             
         }
 
-        public async void NavigateToListUser()
+        public void NavigateToListUser()
         {
-            // _navigationService.NavigateTo("ListUser");
-            await Shell.Current.GoToAsync("//ListUser");
+            _navigationService.NavigateTo("ListUser");
         }
     }
 }

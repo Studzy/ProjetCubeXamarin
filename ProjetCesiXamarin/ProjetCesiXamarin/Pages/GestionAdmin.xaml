@@ -1,9 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:ProjetCesiXamarin.Pages"
-             x:Class="ProjetCesiXamarin.Pages.GestionAdmin"
-             Title="GestionAdmin">
+             x:Class="ProjetCesiXamarin.Pages.GestionAdmin">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Gestion (Admin)"
+                 Order="Primary"
+                 Priority="1"
+                />
+    </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
         <StackLayout>
@@ -14,7 +19,7 @@
 
 
                     <Button Margin="0,50,0,0" x:Name="validateRessource" FontSize="Medium" TextColor="White" BackgroundColor="CadetBlue" CornerRadius="2" FlexLayout.AlignSelf="Stretch" HorizontalOptions="CenterAndExpand" Text="Valider les ressources →"/>
-                    <Button Margin="0,20,0,0" x:Name="ListUser" FontSize="Medium" TextColor="White" BackgroundColor="CadetBlue"  CornerRadius="2" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  Text="Liste des utilisateurs →" Command="{Binding NavigateToListUserCommand}" />
+                    <Button Margin="0,20,0,0" x:Name="signUp" FontSize="Medium" TextColor="White" BackgroundColor="CadetBlue"  CornerRadius="2" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand" Text="Liste des utilisateurs →"/>
                     <Button Margin="0,20,0,0" x:Name="statistique" FontSize="Medium" TextColor="White" BackgroundColor="CadetBlue"  CornerRadius="2" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand" Text="Statistique →"/>
                     <Button Margin="0,20,0,0" x:Name="parametres" FontSize="Medium" TextColor="White" BackgroundColor="CadetBlue"  CornerRadius="2" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand" Text="Paramètres →"/>
                     <Button Margin="0,20,0,0" x:Name="ressourceSuspendues" FontSize="Medium" TextColor="White" BackgroundColor="CadetBlue"  CornerRadius="2" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand" Text="Ressources suspendues →"/>
