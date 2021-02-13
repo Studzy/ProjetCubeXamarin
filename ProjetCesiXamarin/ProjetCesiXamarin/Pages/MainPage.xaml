@@ -3,6 +3,7 @@
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:ProjetCesiXamarin.Pages"
        x:Class="ProjetCesiXamarin.Pages.MainPage"
+       x:Name="ShellFlyout"
        Title="Ressources Relationnelles">
 
     <Shell.FlyoutHeader>
@@ -41,10 +42,15 @@
                 Route="Inscription"
                 ContentTemplate="{DataTemplate local:Inscription}"/>
         </Tab>
-        <Tab Icon="About.png" Title="Ressource" FlyoutItem.IsVisible="False" x:Name="Ressource">
-            <ShellContent Icon="About.png" Title="Ressource" FlyoutItem.IsVisible="False"
-                Route="Ressource"
-                ContentTemplate="{DataTemplate local:Ressource}"/>
-        </Tab>
     </FlyoutItem>
+    <MenuItem 
+        IconImageSource="Logout.png" 
+        x:Name="Deconnection"
+        Text="Se deconnecter"
+       
+        Command="{Binding LoggoutCommand}">
+        
+    </MenuItem>
+    
+    
 </Shell>
