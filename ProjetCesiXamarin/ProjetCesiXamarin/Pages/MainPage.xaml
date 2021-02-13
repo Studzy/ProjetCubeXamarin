@@ -12,6 +12,16 @@
                Shell.TabBarIsVisible="False"
                FlyoutDisplayOptions="AsMultipleItems">
         <Tab>
+            <ShellContent
+                Route="Accueil"
+                Icon="About.png" 
+                ContentTemplate="{DataTemplate local:Accueil}"/>
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem Title="Projet CUBE"
+               Shell.TabBarIsVisible="False"
+               FlyoutDisplayOptions="AsMultipleItems">
+        <Tab>
             <ShellContent Title="{Binding UserName}"
                     Route="Profil"
                     ContentTemplate="{DataTemplate local:Profil}" />
@@ -62,5 +72,5 @@
         </Tab>
     </FlyoutItem>
 
-    <ShellContent Title="Accueil" Icon="About.png" ContentTemplate="{DataTemplate local:Accueil}"/>
+    
 </Shell>
