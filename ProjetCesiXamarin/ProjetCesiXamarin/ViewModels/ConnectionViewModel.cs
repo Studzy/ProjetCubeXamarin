@@ -37,8 +37,6 @@ namespace ProjetCesiXamarin.ViewModels
 
         async void Login()
         {
-            var test = await SecureStorage.GetAsync("token");
-
             LoginData loginData = new LoginData();
             var current = Connectivity.NetworkAccess;
             if (current == NetworkAccess.Internet)
@@ -48,14 +46,17 @@ namespace ProjetCesiXamarin.ViewModels
                     loginData.Username = Username;
                     loginData.Password = Password;
 
-                    var ResultRegister = await _accountService.Login(loginData);
-                }
-             }
-            else
-            {
-                //Temperature = "No Internet";
-                //ColorText = "Red";
+                    Tuple<bool, string> loginResult = await _accountService.Login(loginData);
 
+                    if (loginResult.Item1)
+                    {
+                        await Shell.Current.GoToAsync("//Accueil");
+                    }
+                    else
+                    {
+                        await Application.Current.MainPage.DisplayAlert("Erreur", loginResult.Item2, "Ok");
+                    }
+                }
             }
         }
 

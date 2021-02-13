@@ -3,6 +3,7 @@ using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Views;
 using Newtonsoft.Json;
 using ProjetCesiXamarin.Models;
+using ProjetCesiXamarin.Pages;
 using ProjetCesiXamarin.Services;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace ProjetCesiXamarin.ViewModels
@@ -29,7 +31,7 @@ namespace ProjetCesiXamarin.ViewModels
         {
             _navigationService = navigationService;
 
-            Task.Factory.StartNew(new Func<Task>(async () => await InitData())).Unwrap().Wait();
+            Task.Run(new Func<Task>(() => InitData()));  
             TappedItemCommand = new RelayCommand<RessourceAccueil>(async (ressource) => await NavigateToTappedItem(ressource));
         }
 
@@ -43,12 +45,8 @@ namespace ProjetCesiXamarin.ViewModels
 
         private async Task NavigateToTappedItem(RessourceAccueil ressource)
         {
-            var ressourceComplete = await new RessourceServices().GetRessourceByIdAsync(ressource.Id);
-
-            //_navigationService.NavigateTo("Ressource", ressourceComplete);
-            //await Shell.Current.GoToAsync("//Ressource", ressourceComplete);
-            var RessourceSerialized = JsonConvert.SerializeObject(ressourceComplete);
-            await Shell.Current.GoToAsync($"//Ressource?ressourceComplete={RessourceSerialized}");
+            Routing.RegisterRoute(nameof(Ressource), typeof(Ressource));
+            await Shell.Current.GoToAsync($"{nameof(Ressource)}?RessourceId={ressource.Id}");
         }
 
         public ObservableCollection<RessourceAccueil> DerniereRessources

@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace ProjetCesiXamarin.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AccueilPage : ContentPage
+    public partial class Profil : ContentPage
     {
-        public AccueilPage()
+        public Profil()
         {
             InitializeComponent();
         }

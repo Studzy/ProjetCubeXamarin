@@ -15,6 +15,7 @@ namespace ProjetCesiXamarin.Models
     public class LoginResponse
     {
         public string AccessToken { get; set; }
+        public DateTime Expiration { get; set; }
 
         [JsonProperty("User")]
         public UserData User { get; set; }

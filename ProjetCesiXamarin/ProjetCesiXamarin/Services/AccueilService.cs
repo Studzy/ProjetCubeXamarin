@@ -10,22 +10,15 @@ using System.Threading.Tasks;
 
 namespace ProjetCesiXamarin.Services
 {
-    public class AccueilService
+    public class AccueilService : BaseService
     {
-        HttpClient _client;
-
-        public AccueilService()
-        {
-            _client = new HttpClient();
-        }
-
         public async Task<AccueilData> GetAccueilData()
         {
             AccueilData result = null;
 
             try
             {
-                HttpResponseMessage response = await _client.GetAsync(ApiProjetCesiConstants.ApiProjetCesiEndpoint + "/AccueilAPI");
+                HttpResponseMessage response = await HttpClient.GetAsync("api/AccueilAPI");
 
                 if (response.IsSuccessStatusCode)
                 {
