@@ -30,21 +30,88 @@
         <Tab Icon="userimage.png" Title="{Binding UserName}" FlyoutItem.IsVisible="False" x:Name="Profil">
             <ShellContent Route="Profil"
                     ContentTemplate="{DataTemplate local:Profil}" />
-        </Tab>
-        <Tab Icon="Login.png" Title="Se connecter" x:Name="Connection">
+        <ShellContent Icon="Login.png" Title="Se connecter"
+                    Route="Connection"
+                    ContentTemplate="{DataTemplate local:Connection}"/>
+        <ShellContent Icon="Register.png" Title="Inscription"
+                    Route="Inscription"
+                    ContentTemplate="{DataTemplate local:Inscription}"/>
+        <ShellContent Icon="About.png" Title="Ressource" FlyoutItem.IsVisible="False"
+                    Route="Ressource"
+                    ContentTemplate="{DataTemplate local:Ressource}"/>
+        <ShellContent Title="Accueil" Icon="About.png" 
+                    Route="Accueil"
+                    ContentTemplate="{DataTemplate local:Accueil}"/>
+    </FlyoutItem>
+    <MenuItem Text="Se déconnecter" IconImageSource="Logout.png"
+        Command="{Binding LoggoutCommand}"/>
+
+    <!--<FlyoutItem Title="Projet CUBE"
+               Shell.TabBarIsVisible="False"
+               FlyoutDisplayOptions="AsMultipleItems">
+
+        <Tab Icon="Login.png" Title="Se connecter">
             <ShellContent Icon="Login.png" Title="Se connecter"
                 Route="Connection"
                 ContentTemplate="{DataTemplate local:Connection}"/>
         </Tab>
-        <Tab Icon="Register.png" Title="Inscription" x:Name="Inscription">
+    </FlyoutItem>
+    <FlyoutItem Title="Inscription"
+               Shell.TabBarIsVisible="False"
+               FlyoutDisplayOptions="AsMultipleItems">
+
+        <Tab Icon="Register.png" Title="Inscription">
             <ShellContent Icon="Register.png" Title="Inscription"
                 Route="Inscription"
                 ContentTemplate="{DataTemplate local:Inscription}"/>
         </Tab>
-        <Tab Icon="About.png" Title="Ressource" FlyoutItem.IsVisible="False" x:Name="Ressource">
+
+    </FlyoutItem>
+    <FlyoutItem Title="Ressource"
+               Shell.TabBarIsVisible="False"
+               FlyoutDisplayOptions="AsMultipleItems">
+
+        <Tab Icon="About.png" Title="Ressource" FlyoutItem.IsVisible="False">
             <ShellContent Icon="About.png" Title="Ressource" FlyoutItem.IsVisible="False"
                 Route="Ressource"
                 ContentTemplate="{DataTemplate local:Ressource}"/>
         </Tab>
-    </FlyoutItem>
+    </FlyoutItem>-->
+    <!--<ShellContent Icon="Login.png" Title="Se connecter"
+                    Route="Connection"
+                    ContentTemplate="{DataTemplate local:Connection}"/>
+        <ShellContent Icon="Register.png" Title="Inscription"
+                    Route="Inscription"
+                    ContentTemplate="{DataTemplate local:Inscription}"/>
+        <ShellContent Icon="About.png" Title="Ressource" FlyoutItem.IsVisible="False"
+                    Route="Ressource"
+                    ContentTemplate="{DataTemplate local:Ressource}"/>
+        <ShellContent Title="Accueil" Icon="About.png" 
+                    Route="Accueil"
+                    ContentTemplate="{DataTemplate local:Accueil}"/>-->
+    
+    
+    
+
+        <Tab Icon="About.png" Title="Ressource" FlyoutItem.IsVisible="False">
+            <ShellContent Icon="About.png" Title="Ressource" FlyoutItem.IsVisible="False"
+                Route="Ressource"
+                ContentTemplate="{DataTemplate local:Ressource}"/>
+        </Tab>
+    </FlyoutItem>-->
+    <!--<ShellContent Icon="Login.png" Title="Se connecter"
+                    Route="Connection"
+                    ContentTemplate="{DataTemplate local:Connection}"/>
+        <ShellContent Icon="Register.png" Title="Inscription"
+                    Route="Inscription"
+                    ContentTemplate="{DataTemplate local:Inscription}"/>
+        <ShellContent Icon="About.png" Title="Ressource" FlyoutItem.IsVisible="False"
+                    Route="Ressource"
+                    ContentTemplate="{DataTemplate local:Ressource}"/>
+        <ShellContent Title="Accueil" Icon="About.png" 
+                    Route="Accueil"
+                    ContentTemplate="{DataTemplate local:Accueil}"/>-->
+    
+    
+    
 </Shell>

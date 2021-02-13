@@ -2,17 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             xmlns:controls="clr-namespace:XamForms.HtmlLabel;assembly=XamForms.HtmlLabel" xmlns:local="clr-namespace:ProjetCesiXamarin.Pages"
+             xmlns:controls="clr-namespace:XamForms.HtmlLabel;assembly=XamForms.HtmlLabel"
              x:Class="ProjetCesiXamarin.Pages.Accueil"
              x:Name="AccueilView">
-    
-    <Shell.SearchHandler>
-        <SearchHandler x:Name="Recherche"
-                       Query="{Binding Query}"
-                       SearchBoxVisibility="Collapsible"
-                       Placeholder="Rechercher">
-        </SearchHandler>
-    </Shell.SearchHandler>
     
     <ContentPage.Content>
         <StackLayout>
