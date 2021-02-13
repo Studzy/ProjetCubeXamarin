@@ -15,6 +15,7 @@ namespace ProjetCesiXamarin.Pages
         public ListUser()
         {
             InitializeComponent();
+            BindingContext = App.Locator.ListUserViewModel;
         }
     }
 }

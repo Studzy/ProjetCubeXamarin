@@ -26,7 +26,11 @@
         <ShellContent Title="Accueil" Icon="About.png" 
                     Route="Accueil"
                     ContentTemplate="{DataTemplate local:Accueil}"/>
+        <ShellContent Title="Gestion Admin" Icon="About.png" 
+                    Route="GestionAdmin"
+                    ContentTemplate="{DataTemplate local:GestionAdmin}"/>
     </FlyoutItem>
+    
     <MenuItem Text="Se déconnecter" IconImageSource="Logout.png"
         Command="{Binding LoggoutCommand}"/>
 
