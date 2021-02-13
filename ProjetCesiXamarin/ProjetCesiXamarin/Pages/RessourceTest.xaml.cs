@@ -1,5 +1,4 @@
-﻿using ProjetCesiXamarin.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,12 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace ProjetCesiXamarin.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Accueil : ContentPage
+    public partial class RessourceTest : TabbedPage
     {
-        public Accueil()
+        public RessourceTest()
         {
             InitializeComponent();
-            BindingContext = App.Locator.AccueilViewModel;
         }
     }
 }

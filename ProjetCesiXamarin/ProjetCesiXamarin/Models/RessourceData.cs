@@ -35,6 +35,8 @@ namespace ProjetCesiXamarin.Models
         public bool EstMisDeCote { get; set; }
         [JsonProperty("TypeRelations")]
         public List<TypeRelationData> TypeRelations { get; set; }
+        [JsonProperty("TypeRelationsString")]
+        public string TypeRelationsString { get; set; }
         [JsonProperty("Commentaires")]
         public List<CommentaireData> Commentaires { get; set; }
         [JsonProperty("RessourceSupprime")]

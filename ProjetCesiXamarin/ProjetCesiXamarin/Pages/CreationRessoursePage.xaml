@@ -29,7 +29,7 @@
                 ItemDisplayBinding="{Binding Nom}">
             </Picker>
             <Editor Placeholder="Ecrivez votre article" PlaceholderColor="Gray" />
-            <Button Text="Valider votre article" HorizontalOptions="Center" Clicked="ValidRessource"/>
+            <Button Text="Valider votre article" HorizontalOptions="Center" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

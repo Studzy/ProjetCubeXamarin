@@ -1,4 +1,5 @@
 ﻿using ProjetCesiXamarin.Models;
+using ProjetCesiXamarin.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -28,7 +28,7 @@ namespace ProjetCesiXamarin
 
             NavigationService navigationService = new NavigationService();
 
-            //navigationService.Configure("Home", typeof(MainPage));
+            navigationService.Configure("Home", typeof(MainPage));
             navigationService.Configure("Inscription", typeof(Inscription));
             navigationService.Configure("Ressource", typeof(Ressource));
             navigationService.Configure("Connection", typeof(Connection));

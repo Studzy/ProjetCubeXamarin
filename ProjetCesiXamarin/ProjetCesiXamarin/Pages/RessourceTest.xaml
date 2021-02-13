@@ -2,9 +2,9 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:XamForms.HtmlLabel;assembly=XamForms.HtmlLabel"
-             x:Class="ProjetCesiXamarin.Pages.Ressource">
-
-    <!--Pages can be added as references or inline-->
+             x:Class="ProjetCesiXamarin.Pages.RessourceTest">
+    
+  <!--Pages can be added as references or inline-->
     <ContentPage Title="Ressource">
         <StackLayout>
             <RefreshView Command="{Binding RefreshCommand}"
@@ -14,10 +14,10 @@
             VerticalOptions="FillAndExpand">
                 <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                     <StackLayout>
-                        <Label Text="{Binding Ressource.Titre}" TextColor="Black" FontSize="20" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Margin="10" />
-                        <Label Text="{Binding Categorie}" TextColor="Black" Margin="10"/>
-                        <Label Text="{Binding TypeRessource}" TextColor="Black" Margin="10"/>
-                        <controls:HtmlLabel Text="{Binding TypeRelations}" HorizontalOptions="StartAndExpand" VerticalOptions="Start" Margin="10"/>
+                        <Label Text="{Binding Ressource.Titre}" TextColor="Black" FontSize="20" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Margin="10"  />
+                        <Label Text="{Binding Categorie}" TextColor="Black" />
+                        <Label Text="{Binding TypeRessource}" TextColor="Black"/>
+                        <controls:HtmlLabel Text="{Binding TypeRelations}" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand"/>
                         <StackLayout Orientation="Vertical" VerticalOptions="Start" BackgroundColor="LightCoral">
                             <StackLayout.Triggers>
                                 <DataTrigger TargetType="StackLayout" Binding="{Binding IsUserConnected}" Value="False">
