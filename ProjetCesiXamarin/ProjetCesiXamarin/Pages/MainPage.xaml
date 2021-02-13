@@ -11,10 +11,13 @@
     <FlyoutItem Title="Projet CUBE"
                Shell.TabBarIsVisible="False"
                FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Title="{Binding UserName}"
+        <Tab>
+            <ShellContent Title="{Binding UserName}"
                     Route="Profil"
                     ContentTemplate="{DataTemplate local:Profil}" />
-        <ShellContent Icon="Login.png" Title="Se connecter"
+        </Tab>
+        
+        <!--<ShellContent Icon="Login.png" Title="Se connecter"
                     Route="Connection"
                     ContentTemplate="{DataTemplate local:Connection}"/>
         <ShellContent Icon="Register.png" Title="Inscription"
@@ -25,9 +28,9 @@
                     ContentTemplate="{DataTemplate local:Ressource}"/>
         <ShellContent Title="Accueil" Icon="About.png" 
                     Route="Accueil"
-                    ContentTemplate="{DataTemplate local:Accueil}"/>
+                    ContentTemplate="{DataTemplate local:Accueil}"/>-->
     </FlyoutItem>
-    <!--<FlyoutItem Title="Projet CUBE"
+    <FlyoutItem Title="Projet CUBE"
                Shell.TabBarIsVisible="False"
                FlyoutDisplayOptions="AsMultipleItems">
 
@@ -59,5 +62,5 @@
         </Tab>
     </FlyoutItem>
 
-    <ShellContent Title="Accueil" Icon="About.png" ContentTemplate="{DataTemplate local:Accueil}"/>-->
+    <ShellContent Title="Accueil" Icon="About.png" ContentTemplate="{DataTemplate local:Accueil}"/>
 </Shell>

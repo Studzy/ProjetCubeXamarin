@@ -24,7 +24,7 @@ namespace ProjetCesiXamarin.ViewModels
 
         public ConnectionViewModel(INavigationService navigationService)
         {
-            _navigationService = navigationService;
+            //_navigationService = navigationService;
             NavigateToInscriptionCommand = new RelayCommand(async () => await NavigateToInscription());
             LoginUserCommand = new RelayCommand(() => Login());
         }
