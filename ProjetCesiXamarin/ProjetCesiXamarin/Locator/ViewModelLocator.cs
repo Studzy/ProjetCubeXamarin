@@ -3,6 +3,7 @@ using GalaSoft.MvvmLight.Ioc;
 using ProjetCesiXamarin.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace ProjetCesiXamarin.Locator
@@ -39,7 +40,16 @@ namespace ProjetCesiXamarin.Locator
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<AccueilViewModel>();
+                try
+                {
+                    return ServiceLocator.Current.GetInstance<AccueilViewModel>();
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("\tERROR {0}", ex.Message);
+                    throw;
+                }
+                
             }
         }
 

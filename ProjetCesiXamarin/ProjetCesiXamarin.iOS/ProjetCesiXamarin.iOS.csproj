@@ -163,4 +163,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\Icone.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Consultation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Home_icon.png" />
+  </ItemGroup>
 </Project>
