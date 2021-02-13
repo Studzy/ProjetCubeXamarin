@@ -20,7 +20,7 @@ namespace ProjetCesiXamarin.Pages
         {
             InitializeComponent();
 
-            BindingContext = new RessourceViewModel();
+            BindingContext = App.Locator.RessourceViewModel;
         }
     }
 }
