@@ -8,7 +8,6 @@
             <Picker Title="Categorie"
                 Grid.Row="3"
                 Grid.ColumnSpan="4"
-                SelectedItem="{Binding CreationData}"
                 FontSize="20"
                 ItemsSource="{Binding Categories}"
                 ItemDisplayBinding="{Binding Nom}">
@@ -16,7 +15,6 @@
             <Picker Title="TypeRessources"
                 Grid.Row="3"
                 Grid.ColumnSpan="4"
-                SelectedItem="{Binding CreationData}"
                 FontSize="20"
                 ItemsSource="{Binding TypeRessources}"
                 ItemDisplayBinding="{Binding Nom}">
@@ -24,7 +22,6 @@
             <Picker Title="TypeRelations"
                 Grid.Row="3"
                 Grid.ColumnSpan="4"
-                SelectedItem="{Binding CreationData}"
                 FontSize="20"
                 ItemsSource="{Binding TypeRelations}"
                 ItemDisplayBinding="{Binding Nom}">

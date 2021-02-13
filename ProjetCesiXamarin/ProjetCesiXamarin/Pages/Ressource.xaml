@@ -11,7 +11,7 @@
             HorizontalOptions="FillAndExpand"
             IsRefreshing="{Binding IsRefreshing}"
             RefreshColor="Red"
-            VerticalOptions="FillAndExpand">
+            VerticalOptions="FillAndExpand" >
                 <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                     <StackLayout>
                         <Label Text="{Binding Ressource.Titre}" TextColor="Black" FontSize="20" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Margin="10" />
@@ -34,25 +34,22 @@
             </RefreshView>
         </StackLayout>
     </ContentPage>
-    <ContentPage Title="Commentaires">
-        <RefreshView Command="{Binding RefreshCommand}"
+    <ContentPage Title="Commentaires" BackgroundColor="LightGray">
+        <StackLayout>
+            <Entry Placeholder="Ecrire un commentaire..." PlaceholderColor="Black" ClearButtonVisibility="WhileEditing" InputTransparent="False"/>
+            <RefreshView Command="{Binding RefreshCommand}"
             HorizontalOptions="FillAndExpand"
             IsRefreshing="{Binding IsRefreshing}"
             RefreshColor="Red"
             VerticalOptions="FillAndExpand">
-            <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                <StackLayout>
-                    <StackLayout>
-                        <ListView ItemsSource="{Binding Commentaires}" BackgroundColor="AliceBlue" HasUnevenRows="True">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <TextCell Text="{Binding Utilisateur.UserName}" TextColor="Black" Detail="{Binding Texte}" DetailColor="Black" />
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-                    </StackLayout>
-                </StackLayout>
-            </ScrollView>
-        </RefreshView>
+                <ListView ItemsSource="{Binding Commentaires}" BackgroundColor="AliceBlue" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Utilisateur.UserName}" TextColor="Black" Detail="{Binding Texte}" DetailColor="Black" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </RefreshView>            
+        </StackLayout>
     </ContentPage>
 </TabbedPage>

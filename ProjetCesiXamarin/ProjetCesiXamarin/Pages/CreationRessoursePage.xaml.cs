@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetCesiXamarin.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace ProjetCesiXamarin.Pages
         public CreationRessourcePage()
         {
             InitializeComponent();
+            BindingContext = App.Locator.CreationViewModel;
         }
     }
 }

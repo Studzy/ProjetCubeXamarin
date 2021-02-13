@@ -42,9 +42,6 @@
                 Route="Inscription"
                 ContentTemplate="{DataTemplate local:Inscription}"/>
         </Tab>
-        <!--<Tab Icon="Logout.png" Title="Deconnection" FlyoutItem.IsVisible="False" x:Name="Deconnection">
-            <ShellContent Title="Deconnection" Route="Deconnection"/>
-        </Tab>-->
     </FlyoutItem>
     <MenuItem 
         IconImageSource="Logout.png" 
