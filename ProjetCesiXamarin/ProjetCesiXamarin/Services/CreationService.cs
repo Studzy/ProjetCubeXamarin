@@ -9,20 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 namespace ProjetCesiXamarin.Services
 {
-    class CreationService
+    public class CreationService : BaseService
     {
-        HttpClient _client;
-
-        public CreationService()
-        {
-            _client = new HttpClient();
-        }
-
         public async Task<CreationData> GetBaseInfo()
         {
             try
             {
-                HttpResponseMessage response = await _client.GetAsync(ApiProjetCesiConstants.ApiProjetCesiEndpoint + "CreateArticleAPI/GetBaseInfos");
+                HttpResponseMessage response = await HttpClient.GetAsync("api/CreateArticleAPI/GetBaseInfos");
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
