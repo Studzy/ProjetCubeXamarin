@@ -27,6 +27,9 @@
                     Route="Accueil"
                     ContentTemplate="{DataTemplate local:Accueil}"/>
     </FlyoutItem>
+    <MenuItem Text="Se déconnecter" IconImageSource="Logout.png"
+        Command="{Binding LoggoutCommand}"/>
+
     <!--<FlyoutItem Title="Projet CUBE"
                Shell.TabBarIsVisible="False"
                FlyoutDisplayOptions="AsMultipleItems">
