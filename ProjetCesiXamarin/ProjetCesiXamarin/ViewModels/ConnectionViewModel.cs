@@ -16,7 +16,7 @@ namespace ProjetCesiXamarin.ViewModels
 {
     public class ConnectionViewModel : ViewModelBase
     {
-        private readonly INavigationService _navigationService;
+        //private readonly INavigationService _navigationService;
 
         public ICommand NavigateToInscriptionCommand { get; set; }
         public ICommand LoginUserCommand { get; set; }
@@ -51,6 +51,12 @@ namespace ProjetCesiXamarin.ViewModels
                     if (loginResult.Item1)
                     {
                         await Shell.Current.GoToAsync("//Accueil");
+                        Tab resultTab = Shell.Current.FindByName<Tab>("Profil");
+                        resultTab.IsVisible = true;
+                        resultTab = Shell.Current.FindByName<Tab>("Connection");
+                        resultTab.IsVisible = false;
+                        resultTab = Shell.Current.FindByName<Tab>("Inscription");
+                        resultTab.IsVisible = false;
                     }
                     else
                     {
