@@ -20,12 +20,10 @@
 
                     <Label Text="{Binding Categorie}" TextColor="Black" />
                     <Label Text="{Binding TypeRessource}" TextColor="Black"/>
-                    <ListView ItemsSource="{Binding TypeRelations}" VerticalOptions="Start" HorizontalOptions="Start" BackgroundColor="AliceBlue">
+                    <ListView ItemsSource="{Binding TypeRelations}" VerticalOptions="Start" HorizontalOptions="Start" BackgroundColor="AliceBlue" HasUnevenRows="True">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <ViewCell>
-                                    <Label Text="{Binding Nom}" TextColor="Black"/>
-                                </ViewCell>
+                                <TextCell Text="{Binding Nom}" TextColor="Black" />
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>

@@ -30,16 +30,19 @@ namespace ProjetCesiXamarin.Services
                     {
                         string expiration = await SecureStorage.GetAsync("expiration");
 
-                        if (new DateTime(long.Parse(expiration)) < DateTime.Now)
+                        if (!string.IsNullOrEmpty(expiration))
                         {
-                            SecureStorage.Remove("token");
-                            SecureStorage.Remove("expiration");
-                            SecureStorage.Remove("username");
-                            SecureStorage.Remove("user");
-                        }
-                        else
-                        {
-                            token = await SecureStorage.GetAsync("token");
+                            if (new DateTime(long.Parse(expiration)) < DateTime.Now)
+                            {
+                                SecureStorage.Remove("token");
+                                SecureStorage.Remove("expiration");
+                                SecureStorage.Remove("username");
+                                SecureStorage.Remove("user");
+                            }
+                            else
+                            {
+                                token = await SecureStorage.GetAsync("token");
+                            }
                         }
                     }))
                         .Unwrap()
