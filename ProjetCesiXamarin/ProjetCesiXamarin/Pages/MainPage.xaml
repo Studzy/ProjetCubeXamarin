@@ -17,10 +17,15 @@
                 Route="Accueil"
                 ContentTemplate="{DataTemplate local:Accueil}"/>
         </Tab>
-        <Tab Icon="Consultation.png" Title="Consultation">
+        <Tab Icon="Consultation.png" Title="Consultation" x:Name="Consultation">
             <ShellContent
                 Route="Accueil2"
                 ContentTemplate="{DataTemplate local:Accueil}"/>
+        </Tab>
+        <Tab Icon="Create.png" Title="Création" FlyoutItem.IsVisible="False" x:Name="Creation">
+            <ShellContent
+                Route="CreationRessourcePage"
+                ContentTemplate="{DataTemplate local:CreationRessourcePage}"/>
         </Tab>
         <Tab Icon="userimage.png" Title="{Binding UserName}" FlyoutItem.IsVisible="False" x:Name="Profil">
             <ShellContent Route="Profil"

@@ -169,4 +169,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\Home_icon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Create.png" />
+  </ItemGroup>
 </Project>

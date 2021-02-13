@@ -53,6 +53,8 @@ namespace ProjetCesiXamarin.ViewModels
                         await Shell.Current.GoToAsync("//Accueil");
                         Tab resultTab = Shell.Current.FindByName<Tab>("Profil");
                         resultTab.IsVisible = true;
+                        resultTab = Shell.Current.FindByName<Tab>("Creation");
+                        resultTab.IsVisible = true;
                         resultTab = Shell.Current.FindByName<Tab>("Connection");
                         resultTab.IsVisible = false;
                         resultTab = Shell.Current.FindByName<Tab>("Inscription");
