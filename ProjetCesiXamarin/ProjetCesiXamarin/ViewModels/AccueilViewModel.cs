@@ -39,8 +39,8 @@ namespace ProjetCesiXamarin.ViewModels
         {
             var data = await new AccueilService().GetAccueilData();
 
-            _dernieresRessources = data.RessourcesPlusRecentes;
-            _ressourcePlusConsultees = data.RessourcesPlusVues;
+            DerniereRessources = data.RessourcesPlusRecentes;
+            RessourcePlusConsultees = data.RessourcesPlusVues;
         }
 
         private async Task NavigateToTappedItem(RessourceAccueil ressource)

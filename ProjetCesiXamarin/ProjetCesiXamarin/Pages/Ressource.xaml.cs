@@ -13,7 +13,7 @@ using Xamarin.Forms.Xaml;
 namespace ProjetCesiXamarin.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Ressource : ContentPage
+    public partial class Ressource : TabbedPage
     {
 
         public Ressource()

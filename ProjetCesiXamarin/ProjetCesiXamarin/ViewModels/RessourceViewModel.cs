@@ -1,5 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Views;
+using Newtonsoft.Json;
 using ProjetCesiXamarin.Models;
 using ProjetCesiXamarin.Services;
 using System;
@@ -8,6 +10,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -19,9 +22,13 @@ namespace ProjetCesiXamarin.ViewModels
         public RessourceData _ressource;
         private string _categorie;
         private string _typeRessource;
-        private ObservableCollection<TypeRelationData> _typeRelations;
+        private string _typeRelations;
+        private ObservableCollection<CommentaireData> _commentaires;
         public bool _isUserConnected;
         private string _ressourceId;
+        bool _isRefreshing;
+
+        public ICommand RefreshCommand { get; set; }
 
         public string RessourceId
         {
@@ -30,15 +37,7 @@ namespace ProjetCesiXamarin.ViewModels
             {
                 _ressourceId = value;
 
-                Task.Run(new Func<Task>(async () =>
-                {
-                    var ressourceComplete = await new RessourceServices().GetRessourceByIdAsync(int.Parse(_ressourceId));
-
-                    Ressource = ressourceComplete;
-                    Categorie = ressourceComplete.Categorie.Nom;
-                    TypeRessource = ressourceComplete.TypeRessource.Nom;
-                    TypeRelations = new ObservableCollection<TypeRelationData>(ressourceComplete.TypeRelations);
-                }));
+                Task.Run(new Func<Task>(() => RefreshView()));
 
                 RaisePropertyChanged();
             }
@@ -46,6 +45,7 @@ namespace ProjetCesiXamarin.ViewModels
 
         public RessourceViewModel()
         {
+            RefreshCommand = new RelayCommand(async () => await RefreshView());
             Task.Factory.StartNew(new Func<Task>(async () => await CheckUserIsConnected())).Unwrap().Wait();
         }
 
@@ -57,12 +57,37 @@ namespace ProjetCesiXamarin.ViewModels
             }
         }
 
+        private async Task RefreshView()
+        {
+            IsRefreshing = true;
+
+            var ressourceComplete = await new RessourceServices().GetRessourceByIdAsync(int.Parse(_ressourceId));
+
+            Ressource = ressourceComplete;
+            Categorie = ressourceComplete.Categorie.Nom;
+            TypeRessource = ressourceComplete.TypeRessource.Nom;
+            TypeRelations = ressourceComplete.TypeRelationsString;
+            Commentaires = new ObservableCollection<CommentaireData>(ressourceComplete.Commentaires);
+
+            IsRefreshing = false;
+        }
+
         public RessourceData Ressource
         {
             get { return _ressource; }
             set
             {
                 _ressource = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public bool IsRefreshing
+        {
+            get { return _isRefreshing; }
+            set
+            {
+                _isRefreshing = value;
                 RaisePropertyChanged();
             }
         }
@@ -97,12 +122,22 @@ namespace ProjetCesiXamarin.ViewModels
             }
         }
 
-        public ObservableCollection<TypeRelationData> TypeRelations
+        public string TypeRelations
         {
             get { return _typeRelations; }
             set
             {
                 _typeRelations = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public ObservableCollection<CommentaireData> Commentaires
+        {
+            get { return _commentaires; }
+            set
+            {
+                _commentaires = value;
                 RaisePropertyChanged();
             }
         }

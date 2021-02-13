@@ -1,35 +1,58 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:XamForms.HtmlLabel;assembly=XamForms.HtmlLabel"
              x:Class="ProjetCesiXamarin.Pages.Ressource">
 
-    <ContentPage.Content>
-        <ScrollView>
-            <StackLayout>
-                <Label Text="{Binding Ressource.Titre}" TextColor="Black" FontSize="20" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Margin="10"  />
-                <StackLayout Orientation="Vertical" VerticalOptions="Start" BackgroundColor="LightCoral">
-                    <StackLayout.Triggers>
-                        <DataTrigger TargetType="StackLayout" Binding="{Binding IsUserConnected}" Value="False">
-                            <Setter Property="IsVisible" Value="False" />
-                        </DataTrigger>
-                        <DataTrigger TargetType="StackLayout" Binding="{Binding IsUserConnected}" Value="True">
-                            <Setter Property="IsVisible" Value="True" />
-                        </DataTrigger>
-                    </StackLayout.Triggers>
-
-                    <Label Text="{Binding Categorie}" TextColor="Black" />
-                    <Label Text="{Binding TypeRessource}" TextColor="Black"/>
-                    <ListView ItemsSource="{Binding TypeRelations}" VerticalOptions="Start" HorizontalOptions="Start" BackgroundColor="AliceBlue" HasUnevenRows="True">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <TextCell Text="{Binding Nom}" TextColor="Black" />
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+    <!--Pages can be added as references or inline-->
+    <ContentPage Title="Ressource">
+        <StackLayout>
+            <RefreshView Command="{Binding RefreshCommand}"
+            HorizontalOptions="FillAndExpand"
+            IsRefreshing="{Binding IsRefreshing}"
+            RefreshColor="Red"
+            VerticalOptions="FillAndExpand">
+                <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <StackLayout>
+                        <Label Text="{Binding Ressource.Titre}" TextColor="Black" FontSize="20" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Margin="10" />
+                        <Label Text="{Binding Categorie}" TextColor="Black" Margin="10"/>
+                        <Label Text="{Binding TypeRessource}" TextColor="Black" Margin="10"/>
+                        <controls:HtmlLabel Text="{Binding TypeRelations}" HorizontalOptions="StartAndExpand" VerticalOptions="Start" Margin="10"/>
+                        <StackLayout Orientation="Vertical" VerticalOptions="Start" BackgroundColor="LightCoral">
+                            <StackLayout.Triggers>
+                                <DataTrigger TargetType="StackLayout" Binding="{Binding IsUserConnected}" Value="False">
+                                    <Setter Property="IsVisible" Value="False" />
+                                </DataTrigger>
+                                <DataTrigger TargetType="StackLayout" Binding="{Binding IsUserConnected}" Value="True">
+                                    <Setter Property="IsVisible" Value="True" />
+                                </DataTrigger>
+                            </StackLayout.Triggers>
+                        </StackLayout>
+                        <controls:HtmlLabel Text="{Binding Ressource.Contenu}" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" Margin="10" TextColor="Black"/>
+                    </StackLayout>
+                </ScrollView>
+            </RefreshView>
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="Commentaires">
+        <RefreshView Command="{Binding RefreshCommand}"
+            HorizontalOptions="FillAndExpand"
+            IsRefreshing="{Binding IsRefreshing}"
+            RefreshColor="Red"
+            VerticalOptions="FillAndExpand">
+            <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <StackLayout>
+                    <StackLayout>
+                        <ListView ItemsSource="{Binding Commentaires}" BackgroundColor="AliceBlue" HasUnevenRows="True">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextCell Text="{Binding Utilisateur.UserName}" TextColor="Black" Detail="{Binding Texte}" DetailColor="Black" />
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
                 </StackLayout>
-                <controls:HtmlLabel Text="{Binding Ressource.Contenu}" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" Margin="10" TextColor="Black"/>
-            </StackLayout>
-        </ScrollView>
-    </ContentPage.Content>
-</ContentPage>
+            </ScrollView>
+        </RefreshView>
+    </ContentPage>
+</TabbedPage>
