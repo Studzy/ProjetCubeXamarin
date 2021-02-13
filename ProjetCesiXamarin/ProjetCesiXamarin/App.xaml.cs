@@ -3,6 +3,7 @@ using GalaSoft.MvvmLight.Views;
 using ProjetCesiXamarin.Locator;
 using ProjetCesiXamarin.Pages;
 using ProjetCesiXamarin.Services;
+using ProjetCesiXamarin.ViewModels;
 using System;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
@@ -45,6 +46,8 @@ namespace ProjetCesiXamarin
 
         protected override void OnStart()
         {
+            MainPageViewModel _mainPageViewModel = new MainPageViewModel();
+            _mainPageViewModel.TabVisible();
         }
 
         protected override void OnSleep()

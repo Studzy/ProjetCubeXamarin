@@ -21,6 +21,7 @@ namespace ProjetCesiXamarin.ViewModels
         public ICommand NavigateToInscriptionCommand { get; set; }
         public ICommand LoginUserCommand { get; set; }
         AccountService _accountService = new AccountService();
+        VisibleService _visibleService = new VisibleService();
 
         public ConnectionViewModel(INavigationService navigationService)
         {
@@ -51,14 +52,11 @@ namespace ProjetCesiXamarin.ViewModels
                     if (loginResult.Item1)
                     {
                         await Shell.Current.GoToAsync("//Accueil");
-                        Tab resultTab = Shell.Current.FindByName<Tab>("Profil");
-                        resultTab.IsVisible = true;
-                        resultTab = Shell.Current.FindByName<Tab>("Creation");
-                        resultTab.IsVisible = true;
-                        resultTab = Shell.Current.FindByName<Tab>("Connection");
-                        resultTab.IsVisible = false;
-                        resultTab = Shell.Current.FindByName<Tab>("Inscription");
-                        resultTab.IsVisible = false;
+                        _visibleService.VisibleOnConnect();
+                        MenuItem menuItem = Shell.Current.FindByName<MenuItem>("Deconnection");
+                        menuItem.IsEnabled = true;
+                        menuItem.Text = "Se deconnecter";
+                        menuItem.IconImageSource = "Logout.png";
                     }
                     else
                     {
