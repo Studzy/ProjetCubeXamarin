@@ -3,33 +3,35 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:XamForms.HtmlLabel;assembly=XamForms.HtmlLabel"
              x:Class="ProjetCesiXamarin.Pages.Ressource">
-    
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="{Binding Ressource.Titre}" TextColor="Black" FontSize="20" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Margin="10"  />
-            <StackLayout Orientation="Horizontal" VerticalOptions="Start">
-                <StackLayout.Triggers>
-                    <DataTrigger TargetType="StackLayout" Binding="{Binding IsUserConnected}" Value="False">
-                        <Setter Property="IsVisible" Value="False" />
-                    </DataTrigger>
-                    <DataTrigger TargetType="StackLayout" Binding="{Binding IsUserConnected}" Value="True">
-                        <Setter Property="IsVisible" Value="True" />
-                    </DataTrigger>
-                </StackLayout.Triggers>
 
-                <Label Text="{Binding Categorie}" TextColor="Black" />
-                <Label Text="{Binding TypeRessource}" TextColor="Black"/>
-                <ListView ItemsSource="{Binding TypeRelations}" VerticalOptions="Start">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <Label Text="{Binding Nom}" TextColor="Black"/>                                
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="{Binding Ressource.Titre}" TextColor="Black" FontSize="20" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Margin="10"  />
+                <StackLayout Orientation="Vertical" VerticalOptions="Start" BackgroundColor="LightCoral">
+                    <StackLayout.Triggers>
+                        <DataTrigger TargetType="StackLayout" Binding="{Binding IsUserConnected}" Value="False">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                        <DataTrigger TargetType="StackLayout" Binding="{Binding IsUserConnected}" Value="True">
+                            <Setter Property="IsVisible" Value="True" />
+                        </DataTrigger>
+                    </StackLayout.Triggers>
+
+                    <Label Text="{Binding Categorie}" TextColor="Black" />
+                    <Label Text="{Binding TypeRessource}" TextColor="Black"/>
+                    <ListView ItemsSource="{Binding TypeRelations}" VerticalOptions="Start" HorizontalOptions="Start" BackgroundColor="AliceBlue">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Label Text="{Binding Nom}" TextColor="Black"/>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                <controls:HtmlLabel Text="{Binding Ressource.Contenu}" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" Margin="10" TextColor="Black"/>
             </StackLayout>
-            <controls:HtmlLabel Text="{Binding Ressource.Contenu}" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" Margin="10" TextColor="Black"/>
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

@@ -30,7 +30,7 @@ namespace ProjetCesiXamarin.ViewModels
         {
             _navigationService = navigationService;
 
-            Task.Factory.StartNew(new Func<Task>(async () => await InitData())).Unwrap().Wait();
+            Task.Run(new Func<Task>(() => InitData()));
             TappedItemCommand = new RelayCommand<RessourceAccueil>(async (ressource) => await NavigateToTappedItem(ressource));
         }
 
