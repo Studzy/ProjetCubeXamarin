@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ProjetCesiXamarin.ViewModels
 {
-    class CreationViewModel : ViewModelBase
+    public class CreationViewModel : ViewModelBase
     {
         private readonly INavigationService _navigationService;
 
