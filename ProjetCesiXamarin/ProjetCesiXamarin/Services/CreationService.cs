@@ -18,7 +18,7 @@ namespace ProjetCesiXamarin.Services
             _client = new HttpClient();
         }
 
-        public async Task GetBaseInfo()
+        public async Task<CreationData> GetBaseInfo()
         {
             try
             {
@@ -26,15 +26,17 @@ namespace ProjetCesiXamarin.Services
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-                    //ressource = JsonConvert.DeserializeObject<BaseResponse<RessourceData>>(content).Data;
+                    var data = JsonConvert.DeserializeObject<BaseResponse<CreationData>>(content).Data;
+                    return data;
                 }
 
             }
             catch (Exception)
             {
-
                 throw;
             }
+
+            return null;
         }
     }
 }

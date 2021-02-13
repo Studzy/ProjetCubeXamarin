@@ -7,29 +7,26 @@
             <Picker Title="Categorie"
                 Grid.Row="3"
                 Grid.ColumnSpan="4"
-                SelectedItem="{Binding Place}"
-                FontSize="20">
-                <Picker.Items>
-                    
-                </Picker.Items>
+                SelectedItem="{Binding CreationData}"
+                FontSize="20"
+                ItemsSource="{Binding Categories}"
+                ItemDisplayBinding="{Binding Nom}">
             </Picker>
             <Picker Title="TypeRessources"
                 Grid.Row="3"
                 Grid.ColumnSpan="4"
-                SelectedItem="{Binding Place}"
-                FontSize="20">
-                <Picker.Items>
-
-                </Picker.Items>
+                SelectedItem="{Binding CreationData}"
+                FontSize="20"
+                ItemsSource="{Binding TypeRessources}"
+                ItemDisplayBinding="{Binding Nom}">
             </Picker>
             <Picker Title="TypeRelations"
                 Grid.Row="3"
                 Grid.ColumnSpan="4"
-                SelectedItem="{Binding Place}"
-                FontSize="20">
-                <Picker.Items>
-
-                </Picker.Items>
+                SelectedItem="{Binding CreationData}"
+                FontSize="20"
+                ItemsSource="{Binding TypeRelations}"
+                ItemDisplayBinding="{Binding Nom}">
             </Picker>
             <Editor Placeholder="Ecrivez votre article" PlaceholderColor="Gray" />
             <Button Text="Valider votre article" HorizontalOptions="Center" Clicked="ValidRessource"/>
