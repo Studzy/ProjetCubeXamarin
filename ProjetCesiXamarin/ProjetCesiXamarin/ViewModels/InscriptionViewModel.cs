@@ -55,7 +55,7 @@ namespace ProjetCesiXamarin.ViewModels
                     registerData.Password = Password;
                     registerData.ConfirmPassword = PasswordConfirm;
 
-                    var ResultRegister = await _registerService.Register(GenerateRequestUri(ApiProjetCesiConstants.ApiProjetCesiEndpoint), registerData);
+                    var ResultRegister = await _registerService.Register("api/AccountAPI/Register", registerData);
 
                     if (ResultRegister)
                     {
@@ -75,18 +75,6 @@ namespace ProjetCesiXamarin.ViewModels
 
             }
 
-        }
-
-        /// <summary>
-        /// Retourne un uri
-        /// </summary>
-        /// <param name="endpoint"></param>
-        /// <returns></returns>
-        string GenerateRequestUri(string endpoint)
-        {
-            string requestUri = endpoint;
-            requestUri += "/AccountAPI/Register";
-            return requestUri;
         }
 
         private string _username;

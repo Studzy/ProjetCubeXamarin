@@ -15,6 +15,8 @@ namespace ProjetCesiXamarin.Pages
         public MainPage()
         {
             InitializeComponent();
+
+            BindingContext = App.Locator.MainPageViewModel;
         }
     }
 }
