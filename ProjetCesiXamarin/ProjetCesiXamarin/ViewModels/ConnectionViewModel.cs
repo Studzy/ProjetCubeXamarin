@@ -46,7 +46,16 @@ namespace ProjetCesiXamarin.ViewModels
                     loginData.Username = Username;
                     loginData.Password = Password;
 
-                    var resultRegister = await _accountService.Login(loginData);
+                    Tuple<bool, string> loginResult = await _accountService.Login(loginData);
+
+                    if (loginResult.Item1)
+                    {
+                        await Shell.Current.GoToAsync("//Accueil");
+                    }
+                    else
+                    {
+                        await Application.Current.MainPage.DisplayAlert("Erreur", loginResult.Item2, "Ok");
+                    }
                 }
             }
         }

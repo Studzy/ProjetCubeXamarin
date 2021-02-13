@@ -13,6 +13,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace ProjetCesiXamarin.ViewModels
@@ -30,7 +31,7 @@ namespace ProjetCesiXamarin.ViewModels
         {
             _navigationService = navigationService;
 
-            Task.Run(new Func<Task>(() => InitData()));
+            Task.Run(new Func<Task>(() => InitData()));  
             TappedItemCommand = new RelayCommand<RessourceAccueil>(async (ressource) => await NavigateToTappedItem(ressource));
         }
 
