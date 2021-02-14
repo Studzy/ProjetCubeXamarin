@@ -35,13 +35,14 @@ namespace ProjetCesiXamarin.ViewModels
             Routing.RegisterRoute("ressource", typeof(Ressource));
         }
 
-        private void Loggout()
+        private async void Loggout()
         {
             SecureStorage.Remove("token");
             SecureStorage.Remove("expiration");
             SecureStorage.Remove("username");
 
             UserName = null;
+            await Application.Current.MainPage.DisplayAlert("Information", "Vous avez été déconnecté", "Ok");
         }
 
         async Task InitData()

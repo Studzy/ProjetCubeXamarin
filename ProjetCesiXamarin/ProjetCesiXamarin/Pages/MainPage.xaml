@@ -47,6 +47,9 @@
                 ContentTemplate="{DataTemplate local:Ressource}"/>
         </Tab>
     </FlyoutItem>
+
+    <MenuItem Text="Se déconnecter" IconImageSource="Logout.png"
+              Command="{Binding LoggoutCommand}"/>
     <!--<FlyoutItem Title="Consultation"
                Shell.TabBarIsVisible="False"
                FlyoutDisplayOptions="AsMultipleItems">
