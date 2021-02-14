@@ -2,13 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProjetCesiXamarin.Pages.Consultation">
-    <!--<Shell.SearchHandler>
-        <SearchHandler x:Name="Recherche"
-                       TextColor="Black"
-                       Query="{Binding Textsearch}"
-                       Placeholder="Rechercher"
-                       Command="{Binding RechercheCommand}"
-                       />
+    
 
     <Shell.SearchHandler>
         <SearchHandler x:Name="searchBar"

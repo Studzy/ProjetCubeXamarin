@@ -18,9 +18,9 @@ namespace ProjetCesiXamarin.ViewModels
 
         public void Rechercher(string query)
         {
-                recherche.Recherche = Textsearch;
+                //recherche.Recherche = Textsearch;
                 //var SearchResult = await _consultationService.GetSearch(Textsearch);
-            }
+            
 
 
         }
