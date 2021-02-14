@@ -38,6 +38,7 @@ namespace ProjetCesiXamarin.Services
                         await SecureStorage.SetAsync("token", data.Data.AccessToken);
                         await SecureStorage.SetAsync("expiration", data.Data.Expiration.Ticks.ToString());
                         await SecureStorage.SetAsync("username", data.Data.User.UserName);
+                        await SecureStorage.SetAsync("userId", data.Data.User.Id.ToString());
                         await SecureStorage.SetAsync("user", JsonConvert.SerializeObject(data.Data.User));
 
                         result = true;

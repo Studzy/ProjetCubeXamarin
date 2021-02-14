@@ -17,6 +17,8 @@ namespace ProjetCesiXamarin.Models
         public string Titre { get; set; }
         [JsonProperty("Contenu")]
         public string Contenu { get; set; }
+        [JsonProperty("ContenuOriginal")]
+        public string ContenuOriginal { get; set; }
         [JsonProperty("Statut")]
         public Statut Statut { get; set; }
         [JsonProperty("NombreConsultation")]

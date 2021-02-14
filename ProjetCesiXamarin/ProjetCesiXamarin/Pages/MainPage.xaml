@@ -28,6 +28,11 @@
                 Route="CreationRessourcePage"
                 ContentTemplate="{DataTemplate local:CreationRessourcePage}"/>
         </Tab>
+        <Tab Icon="Create.png" Title="Tableau de bord" FlyoutItem.IsVisible="False" x:Name="Board">
+            <ShellContent
+                Route="TableauDeBordPage"
+                ContentTemplate="{DataTemplate local:TableauDeBordPage}"/>
+        </Tab>
         <Tab Icon="userimage.png" Title="{Binding UserName}" FlyoutItem.IsVisible="False" x:Name="Profil">
             <ShellContent Route="Profil"
                     ContentTemplate="{DataTemplate local:Profil}" />
@@ -49,8 +54,10 @@
         Text="Se deconnecter"
        
         Command="{Binding LoggoutCommand}">
-        
+
     </MenuItem>
     
     
+
+
 </Shell>

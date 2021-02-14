@@ -44,11 +44,13 @@ namespace ProjetCesiXamarin.ViewModels
             }
         }
 
+        
         public RessourceViewModel()
         {
             RefreshCommand = new RelayCommand(async () => await RefreshView());
             Task.Factory.StartNew(new Func<Task>(async () => await CheckUserIsConnected())).Unwrap().Wait();
         }
+
 
         private async Task CheckUserIsConnected()
         {

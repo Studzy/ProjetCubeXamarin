@@ -22,9 +22,9 @@ namespace ProjetCesiXamarin.ViewModels
         public ICommand NavigateToInscriptionCommand { get; set; }
         public ICommand RegisterUserCommand { get; set; }
 
-        public InscriptionViewModel(INavigationService navigationService)
+        public InscriptionViewModel()//(INavigationService navigationService)
         {
-            _navigationService = navigationService;
+            //_navigationService = navigationService;
             NavigateToInscriptionCommand = new RelayCommand(() => NavigateToInscription());
             RegisterUserCommand = new RelayCommand(() => RegisterUser());
         }

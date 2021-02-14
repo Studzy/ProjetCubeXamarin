@@ -20,6 +20,8 @@ namespace ProjetCesiXamarin.Services
             resultTab.IsVisible = true;
             resultTab = Shell.Current.FindByName<Tab>("Consultation");
             resultTab.IsVisible = true;
+            resultTab = Shell.Current.FindByName<Tab>("Board");
+            resultTab.IsVisible = true;
             //resultTab = Shell.Current.FindByName<Tab>("Deconnection");
             //resultTab.IsVisible = true;
             //MenuItem menuItem = Shell.Current.FindByName<MenuItem>("Deconnection");
@@ -38,6 +40,8 @@ namespace ProjetCesiXamarin.Services
             Tab resultTab = Shell.Current.FindByName<Tab>("Profil");
             resultTab.IsVisible = false;
             resultTab = Shell.Current.FindByName<Tab>("Creation");
+            resultTab.IsVisible = false;
+            resultTab = Shell.Current.FindByName<Tab>("Board");
             resultTab.IsVisible = false;
             resultTab = Shell.Current.FindByName<Tab>("Accueil");
             resultTab.IsVisible = true;
