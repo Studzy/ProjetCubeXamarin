@@ -7,6 +7,8 @@ namespace ProjetCesiXamarin.Models
 {
     public class CommentaireData
     {
+        [JsonProperty("Id")]
+        public int Id { get; set; }
         [JsonProperty("DateCreation")]
         public DateTimeOffset DateCreation { get; set; }
         [JsonProperty("DateModification")]

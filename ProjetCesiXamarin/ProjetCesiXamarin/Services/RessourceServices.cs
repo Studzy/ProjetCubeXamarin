@@ -36,5 +36,142 @@ namespace ProjetCesiXamarin.Services
 
             return ressource;
         }
+
+        public async Task<bool> AjouterFavoris(int ressourcedId)
+        {
+            try
+            {
+                HttpResponseMessage response = await HttpClient.GetAsync($"api/RessourceAPI/AjouterFavoris?ressourceId={ressourcedId}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
+
+            return false;
+        }
+
+        public async Task<bool> SupprimerFavoris(int ressourcedId)
+        {
+            try
+            {
+                HttpResponseMessage response = await HttpClient.GetAsync($"api/RessourceAPI/SupprimerFavoris?ressourceId={ressourcedId}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
+
+            return false;
+        }
+
+        public async Task<bool> AjouterMettreDeCote(int ressourcedId)
+        {
+            try
+            {
+                HttpResponseMessage response = await HttpClient.GetAsync($"api/RessourceAPI/AjouterMettreDeCote?ressourceId={ressourcedId}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
+
+            return false;
+        }
+
+        public async Task<bool> SupprimerMettreDeCote(int ressourcedId)
+        {
+            try
+            {
+                HttpResponseMessage response = await HttpClient.GetAsync($"api/RessourceAPI/SupprimerMettreDeCote?ressourceId={ressourcedId}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
+
+            return false;
+        }
+
+        public async Task<bool> AjouterExploite(int ressourcedId)
+        {
+            try
+            {
+                HttpResponseMessage response = await HttpClient.GetAsync($"api/RessourceAPI/AjouterExploite?ressourceId={ressourcedId}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
+
+            return false;
+        }
+
+        public async Task<bool> SupprimerExploite(int ressourcedId)
+        {
+            try
+            {
+                HttpResponseMessage response = await HttpClient.GetAsync($"api/RessourceAPI/SupprimerExploite?ressourceId={ressourcedId}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
+
+            return false;
+        }
+
+        public async Task<CommentairesModel> PosterCommentaire(object data)
+        {
+            CommentairesModel commentaires = null;
+
+            try
+            {
+                string json = JsonConvert.SerializeObject(data);
+                StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await HttpClient.PostAsync("api/CommentaireAPI/AjouterCommentaire", content);
+                if (response.IsSuccessStatusCode)
+                {
+                    string result = await response.Content.ReadAsStringAsync();
+                    commentaires = JsonConvert.DeserializeObject<BaseResponse<CommentairesModel>>(result).Data;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
+
+            return commentaires;
+        }
     }
 }

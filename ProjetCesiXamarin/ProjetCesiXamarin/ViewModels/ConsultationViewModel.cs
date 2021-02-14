@@ -14,36 +14,15 @@ namespace ProjetCesiXamarin.ViewModels
 {
     public class ConsultationViewModel : ViewModelBase
     {
-        private string _textsearch;
-        ConsultationService _consultationService = new ConsultationService();
-        public ICommand RechercheCommand;
+        public ICommand PerformSearch => new RelayCommand<string>((query) => Rechercher(query));
 
-        public ConsultationViewModel()
+        public void Rechercher(string query)
         {
-            //Task.Run(new Func<Task>(() => Search()));
-            RechercheCommand = new RelayCommand<string>((query) => Search(query));
-        }
-
-        public string Textsearch
-        {
-            get { return _textsearch; }
-            set
-            {
-                _textsearch = value;
-                RaisePropertyChanged();
-            }
-        }
-
-        public void Search(string query)
-        {
-            RechercheRessource recherche = new RechercheRessource();
-            if (!string.IsNullOrWhiteSpace(Textsearch))
-            {
                 recherche.Recherche = Textsearch;
                 //var SearchResult = await _consultationService.GetSearch(Textsearch);
             }
 
-            
+
         }
 
 

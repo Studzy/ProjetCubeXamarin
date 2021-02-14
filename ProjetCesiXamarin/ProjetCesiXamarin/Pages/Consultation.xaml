@@ -10,42 +10,19 @@
                        Command="{Binding RechercheCommand}"
                        />
 
-    </Shell.SearchHandler>-->
-    <Shell.SearchHandler >
-        <SearchHandler  x:Name="searchBar"
-               Placeholder="Search..."
-               Command="{Binding RechercheCommand}" 
-               CommandParameter="{Binding Query, Source={x:Reference searchBar}}" 
-               TextColor="Black" 
-               BackgroundColor="LightGray"
-               />
+    <Shell.SearchHandler>
+        <SearchHandler x:Name="searchBar"
+                       Placeholder="Rechercher une ressource..."
+                       Command="{Binding PerformSearch}"
+                       CommandParameter="{Binding Query, Source={x:Reference searchBar}}"/>
     </Shell.SearchHandler>
-
+    
     <ContentPage.Content>
-        <StackLayout Padding="10,0,10,0">
-            <ListView ItemsSource="{Binding}" IsPullToRefreshEnabled="True" x:Name="ListRessource">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Orientation="Horizontal">
-                                <StackLayout HorizontalOptions="StartAndExpand">
-                                    <Label Text="{Binding Titre}"
-                                           FontAttributes="Bold"/>
-                                    <Label Text="{Binding Contenu}"
-                                           TextColor="Gray"/>
-                                </StackLayout>
-                                <Button Text="Voir"
-                                        BorderColor="Silver"
-                                        FontSize="Small"
-                                        TextColor="White"
-                                        BackgroundColor="#3399ff"
-                                        VerticalOptions="Center"
-                                         />
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+        <StackLayout>
+            <!--<SearchBar x:Name="searchBar"
+                       Placeholder="Rechercher une ressource..."
+                       SearchCommand="{Binding PerformSearch}"
+                       SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}"/>-->
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
