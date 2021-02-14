@@ -9,7 +9,5 @@ namespace ProjetCesiXamarin.Models
     {
         [JsonProperty("Nom")]
         public string Nom { get; set; }
-        [JsonProperty("Ressources")]
-        public List<RessourceData> Ressources { get; set; }
     }
 }

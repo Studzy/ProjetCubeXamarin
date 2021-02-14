@@ -1,5 +1,4 @@
-﻿using ProjetCesiXamarin.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,12 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace ProjetCesiXamarin.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CreationRessourcePage : ContentPage
+    public partial class DeconnecterPage : ContentPage
     {
-        public CreationRessourcePage()
+        public DeconnecterPage()
         {
             InitializeComponent();
-            BindingContext = App.Locator.CreationViewModel;
         }
     }
 }

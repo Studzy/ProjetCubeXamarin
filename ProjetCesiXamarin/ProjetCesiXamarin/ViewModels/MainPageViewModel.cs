@@ -19,18 +19,21 @@ namespace ProjetCesiXamarin.ViewModels
     public class MainPageViewModel : ViewModelBase
     {
         private readonly INavigationService _navigationService;
+        VisibleService _visibleService = new VisibleService();
 
         private string _userName;
         private bool _userIsConnected;
 
         public ICommand LoggoutCommand { get; set; }
 
-        public MainPageViewModel(INavigationService navigationService)
+        //public MainPageViewModel(INavigationService navigationService)
+        public MainPageViewModel()
         {
-            _navigationService = navigationService;
+            //_navigationService = navigationService;
 
             LoggoutCommand = new RelayCommand(() => Loggout());
             Task.Factory.StartNew(new Func<Task>(async () => await InitData())).Unwrap().Wait();
+            //Task.Factory.StartNew(()=> TabVisible());
 
             Routing.RegisterRoute("ressource", typeof(Ressource));
         }
@@ -42,7 +45,11 @@ namespace ProjetCesiXamarin.ViewModels
             SecureStorage.Remove("username");
 
             UserName = null;
-            await Application.Current.MainPage.DisplayAlert("Information", "Vous avez été déconnecté", "Ok");
+            _visibleService.VisibleOnDisconnect();
+            MenuItem menuItem = Shell.Current.FindByName<MenuItem>("Deconnection");
+            menuItem.IsEnabled = false;
+            menuItem.Text = "";
+            menuItem.IconImageSource = "";
         }
 
         async Task InitData()
@@ -68,12 +75,35 @@ namespace ProjetCesiXamarin.ViewModels
                     {
                         UserName = username;
                         UserIsConnected = true;
+                        
                     }
                 }
                 else
                 {
                     UserIsConnected = false;
                 }
+            }
+
+        }
+
+        public void TabVisible()
+        {
+            var Connected = UserIsConnected;
+            if (Connected)
+            {
+                _visibleService.VisibleOnConnect();
+                MenuItem menuItem = Shell.Current.FindByName<MenuItem>("Deconnection");
+                menuItem.IsEnabled = true;
+                menuItem.Text = "Se deconnecter";
+                menuItem.IconImageSource = "Logout.png";
+            }
+            else
+            {
+                _visibleService.VisibleOnDisconnect();
+                MenuItem menuItem = Shell.Current.FindByName<MenuItem>("Deconnection");
+                menuItem.IsEnabled = false;
+                menuItem.Text = "";
+                menuItem.IconImageSource = "";
             }
         }
 
