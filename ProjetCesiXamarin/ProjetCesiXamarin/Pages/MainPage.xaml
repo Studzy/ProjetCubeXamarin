@@ -20,8 +20,8 @@
         </Tab>
         <Tab Icon="Consultation.png" Title="Consultation" x:Name="Consultation">
             <ShellContent
-                Route="Accueil2"
-                ContentTemplate="{DataTemplate local:Accueil}"/>
+                Route="Consultation"
+                ContentTemplate="{DataTemplate local:Consultation}"/>
         </Tab>
         <Tab Icon="Create.png" Title="Création" FlyoutItem.IsVisible="False" x:Name="Creation">
             <ShellContent
