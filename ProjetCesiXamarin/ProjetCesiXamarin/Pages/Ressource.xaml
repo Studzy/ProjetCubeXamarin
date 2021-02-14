@@ -4,6 +4,50 @@
              xmlns:controls="clr-namespace:XamForms.HtmlLabel;assembly=XamForms.HtmlLabel"
              x:Class="ProjetCesiXamarin.Pages.Ressource">
 
+    <ContentPage Title="Ressource">
+        <RefreshView Command="{Binding RefreshCommand}"
+            HorizontalOptions="FillAndExpand"
+            IsRefreshing="{Binding IsRefreshing}"
+            RefreshColor="Red"
+            VerticalOptions="FillAndExpand" >
+            <StackLayout>
+                <Label Text="{Binding Ressource.Titre}" TextColor="Black" FontSize="20" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Margin="0, 10, 0, 0" />
+                <WebView VerticalOptions="FillAndExpand">
+                    <WebView.Source>
+                        <HtmlWebViewSource Html="{Binding Ressource.Contenu}"/>
+                    </WebView.Source>
+                </WebView>
+            </StackLayout>            
+        </RefreshView>
+    </ContentPage>
+    <ContentPage Title="Commentaires" BackgroundColor="LightGray">
+        <StackLayout>
+            <RefreshView Command="{Binding RefreshCommand}"
+            HorizontalOptions="FillAndExpand"
+            IsRefreshing="{Binding IsRefreshing}"
+            RefreshColor="Red"
+            VerticalOptions="FillAndExpand">
+                <ListView ItemsSource="{Binding Commentaires}" BackgroundColor="AliceBlue" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Utilisateur.UserName}" TextColor="Black" Detail="{Binding Texte}" DetailColor="Black" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </RefreshView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Entry Grid.Column="0" Grid.Row="0" Placeholder="Ecrire un commentaire..." Text="{Binding CommentaireEntry}" PlaceholderColor="Black" ClearButtonVisibility="WhileEditing" InputTransparent="False" HeightRequest="65"/>
+                <Button Grid.Column="1" Grid.Row="0" Text=">" Command="{Binding SendCommentaireCommand}"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage>
     <ContentPage Title="Actions">
         <RefreshView Command="{Binding RefreshCommand}"
             HorizontalOptions="FillAndExpand"
@@ -22,9 +66,9 @@
                                 <Setter Property="IsVisible" Value="True" />
                             </DataTrigger>
                         </StackLayout.Triggers>
-                        <Button Text="Ajouter aux favoris" HorizontalOptions="CenterAndExpand" ImageSource="About.png" WidthRequest="600" BackgroundColor="CornflowerBlue" TextColor="Black"/>
-                        <Button Text="Ajouter aux ressources mise de côté" HorizontalOptions="CenterAndExpand" ImageSource="About.png" WidthRequest="600" BackgroundColor="Green" TextColor="Black"/>
-                        <Button Text="Ajouter aux ressources exploitées" HorizontalOptions="CenterAndExpand" ImageSource="About.png" WidthRequest="600" BackgroundColor="Red" TextColor="Black"/>
+                        <Button Text="{Binding FavorisText}" HorizontalOptions="CenterAndExpand" ImageSource="star.png" WidthRequest="600" BackgroundColor="CornflowerBlue" TextColor="Black" Command="{Binding FavorisCommand}"/>
+                        <Button Text="{Binding DeCoteText}" HorizontalOptions="CenterAndExpand" ImageSource="back_arrow.png" WidthRequest="600" BackgroundColor="CornflowerBlue" TextColor="Black" Command="{Binding DeCoteCommand}"/>
+                        <Button Text="{Binding ExploiteText}" HorizontalOptions="CenterAndExpand" ImageSource="check.png" WidthRequest="600" BackgroundColor="CornflowerBlue" TextColor="Black" Command="{Binding ExploiteCommand}"/>
                     </StackLayout>
                     <WebView VerticalOptions="FillAndExpand">
                         <WebView.Source>
@@ -34,36 +78,5 @@
                 </StackLayout>
             </ScrollView>
         </RefreshView>
-    </ContentPage>
-    <ContentPage Title="Ressource">
-        <RefreshView Command="{Binding RefreshCommand}"
-            HorizontalOptions="FillAndExpand"
-            IsRefreshing="{Binding IsRefreshing}"
-            RefreshColor="Red"
-            VerticalOptions="FillAndExpand" >
-            <WebView VerticalOptions="FillAndExpand">
-                <WebView.Source>
-                    <HtmlWebViewSource Html="{Binding Ressource.Contenu}"/>
-                </WebView.Source>
-            </WebView>
-        </RefreshView>
-    </ContentPage>
-    <ContentPage Title="Commentaires" BackgroundColor="LightGray">
-        <StackLayout>
-            <Entry Placeholder="Ecrire un commentaire..." PlaceholderColor="Black" ClearButtonVisibility="WhileEditing" InputTransparent="False"/>
-            <RefreshView Command="{Binding RefreshCommand}"
-            HorizontalOptions="FillAndExpand"
-            IsRefreshing="{Binding IsRefreshing}"
-            RefreshColor="Red"
-            VerticalOptions="FillAndExpand">
-                <ListView ItemsSource="{Binding Commentaires}" BackgroundColor="AliceBlue" HasUnevenRows="True">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <TextCell Text="{Binding Utilisateur.UserName}" TextColor="Black" Detail="{Binding Texte}" DetailColor="Black" />
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </RefreshView>            
-        </StackLayout>
     </ContentPage>
 </TabbedPage>

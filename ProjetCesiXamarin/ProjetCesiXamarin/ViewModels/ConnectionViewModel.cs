@@ -38,7 +38,6 @@ namespace ProjetCesiXamarin.ViewModels
 
         async void Login()
         {
-            MainPageViewModel _mainPage = new MainPageViewModel();
             LoginData loginData = new LoginData();
             var current = Connectivity.NetworkAccess;
             if (current == NetworkAccess.Internet)
@@ -58,7 +57,7 @@ namespace ProjetCesiXamarin.ViewModels
                         menuItem.IsEnabled = true;
                         menuItem.Text = "Se deconnecter";
                         menuItem.IconImageSource = "Logout.png";
-                        _mainPage.UserName = await SecureStorage.GetAsync("username");
+                        Shell.Current.FindByName<Tab>("Profil").Title = await SecureStorage.GetAsync("username");
                     }
                     else
                     {
