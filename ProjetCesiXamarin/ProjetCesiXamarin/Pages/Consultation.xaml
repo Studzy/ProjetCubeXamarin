@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProjetCesiXamarin.Pages.Consultation">
+    <!--<Shell.SearchHandler>
+        <SearchHandler x:Name="Recherche"
+                       TextColor="Black"
+                       Query="{Binding Textsearch}"
+                       Placeholder="Rechercher"
+                       Command="{Binding RechercheCommand}"
+                       />
+
+    </Shell.SearchHandler>-->
+    <Shell.SearchHandler >
+        <SearchHandler  x:Name="searchBar"
+               Placeholder="Search..."
+               Command="{Binding RechercheCommand}" 
+               CommandParameter="{Binding Query, Source={x:Reference searchBar}}" 
+               TextColor="Black" 
+               BackgroundColor="LightGray"
+               />
+    </Shell.SearchHandler>
+
+    <ContentPage.Content>
+        <StackLayout Padding="10,0,10,0">
+            <ListView ItemsSource="{Binding}" IsPullToRefreshEnabled="True" x:Name="ListRessource">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout HorizontalOptions="StartAndExpand">
+                                    <Label Text="{Binding Titre}"
+                                           FontAttributes="Bold"/>
+                                    <Label Text="{Binding Contenu}"
+                                           TextColor="Gray"/>
+                                </StackLayout>
+                                <Button Text="Voir"
+                                        BorderColor="Silver"
+                                        FontSize="Small"
+                                        TextColor="White"
+                                        BackgroundColor="#3399ff"
+                                        VerticalOptions="Center"
+                                         />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+

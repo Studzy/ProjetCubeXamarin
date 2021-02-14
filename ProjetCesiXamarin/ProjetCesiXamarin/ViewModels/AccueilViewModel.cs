@@ -24,7 +24,6 @@ namespace ProjetCesiXamarin.ViewModels
 
         public ObservableCollection<RessourceAccueil> _dernieresRessources;
         public ObservableCollection<RessourceAccueil> _ressourcePlusConsultees;
-        public ObservableCollection<RessourceAccueil> _ressource;
 
         public ICommand TappedItemCommand { get; set; }
 
@@ -66,16 +65,6 @@ namespace ProjetCesiXamarin.ViewModels
             set
             {
                 _ressourcePlusConsultees = value;
-                RaisePropertyChanged();
-            }
-        }
-
-        public ObservableCollection<RessourceAccueil> Ressource
-        {
-            get { return _ressource; }
-            set
-            {
-                _ressource = value;
                 RaisePropertyChanged();
             }
         }

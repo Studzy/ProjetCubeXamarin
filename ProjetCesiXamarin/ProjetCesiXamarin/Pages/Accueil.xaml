@@ -8,13 +8,13 @@
 
     <Shell.SearchHandler>
         <SearchHandler x:Name="Recherche"
-                       Query="{Binding Query}"
+                       Query="{Binding Recherche}"
                        SearchBoxVisibility="Collapsible"
                        Placeholder="Rechercher">
-            
+
         </SearchHandler>
     </Shell.SearchHandler>
-    
+
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Dernières ressources mises en lignes"
