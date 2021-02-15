@@ -7,6 +7,13 @@ namespace ProjetCesiXamarin.Models
     public class ListRessource
     {
         public int TypeTri { get; set; }
-        public List<RessourceData> Ressources { get; set; }
+        public List<RessourceSearch> Ressources { get; set; }
+
+    }
+
+    public class RessourceSearch
+    {
+        public int Id { get; set; }
+        public string Titre { get; set; }
     }
 }

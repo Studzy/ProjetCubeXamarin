@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ProjetCesiXamarin.Pages.Consultation">
+             x:Class="ProjetCesiXamarin.Pages.Consultation"
+             x:Name="RechercheView">
 
     <Shell.SearchHandler>
         <SearchHandler x:Name="searchBar"
@@ -12,7 +13,40 @@
     
     <ContentPage.Content>
         <StackLayout>
-            
+            <ListView SelectionMode="None"
+                      CachingStrategy="RecycleElement" 
+                      IsPullToRefreshEnabled="True"
+                      x:Name="ListRecherche" 
+                      ItemsSource="{Binding Recherche}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <SwipeView>
+
+                                <SwipeView.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        NumberOfTapsRequired="1" />
+                                </SwipeView.GestureRecognizers>
+                                <SwipeView.LeftItems>
+                                    <SwipeItem
+                                        Text="Voir"
+                                        BackgroundColor="LightSteelBlue"
+                                        CommandParameter="{Binding}"
+                                        Command="{Binding Source={x:Reference RechercheView}, Path=BindingContext.GoToRessourceCommand}"
+                                        />
+                                </SwipeView.LeftItems>
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Label HorizontalOptions="Start" Text="{Binding Titre}" Margin="10" />
+                                </StackLayout>
+
+                            </SwipeView>
+
+                        </ViewCell>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
