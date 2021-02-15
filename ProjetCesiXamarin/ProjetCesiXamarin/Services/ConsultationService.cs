@@ -11,16 +11,16 @@ namespace ProjetCesiXamarin.Services
 {
     public class ConsultationService : BaseService
     {
-        public async Task<RessourceData> GetSearch(string recherche)
+        public async Task<RechercheRessource> GetSearch(string recherche)
         {
-            RessourceData ressource = null;
+            RechercheRessource ressource = null;
             try
             {
                 HttpResponseMessage response = await HttpClient.GetAsync("api/ConsultationAPI/Search?recherche=" + recherche);
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-                    ressource = JsonConvert.DeserializeObject<BaseResponse<RessourceData>>(content).Data;
+                    ressource = JsonConvert.DeserializeObject<BaseResponse<RechercheRessource>>(content).Data;
                 }
             }
             catch (Exception ex)

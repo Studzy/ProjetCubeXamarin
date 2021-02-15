@@ -4,50 +4,52 @@ using ProjetCesiXamarin.Models;
 using ProjetCesiXamarin.Services;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace ProjetCesiXamarin.ViewModels
 {
     public class ConsultationViewModel : ViewModelBase
     {
-        private string _textsearch;
+        
         ConsultationService _consultationService = new ConsultationService();
-        //public ICommand RechercheCommand;
 
-        //public ConsultationViewModel()
-        //{
-        //    RechercheCommand = new RelayCommand<string>((query) => Search(query));
-        //}
+        public ICommand RechercheCommand => new RelayCommand<string>(async(query) => await Search(query));
 
-        public ICommand RechercheCommand => new RelayCommand<string>((Textsearch) => Search(Textsearch));
-
-        public string Textsearch
+        private string _query;
+        public string query
         {
-            get { return _textsearch; }
+            get { return _query; }
             set
             {
-                _textsearch = value;
+                _query = value;
                 RaisePropertyChanged();
             }
         }
 
-        public void Search(string Textsearch)
+        public async Task Search(string query)
         {
             RechercheRessource recherche = new RechercheRessource();
-            if (!string.IsNullOrWhiteSpace(Textsearch))
+            if (!string.IsNullOrWhiteSpace(query))
             {
-                recherche.Recherche = Textsearch;
+                recherche.Recherche = query;
+                var searchResult = await _consultationService.GetSearch(query);
             }
         }
 
+        public ObservableCollection<RechercheRessource> _recherche;
 
-
-        public ICommand PerformSearch => new RelayCommand<string>((query) => Rechercher(query));
-
-        public void Rechercher(string query)
+        public ObservableCollection<RechercheRessource> Recherche
         {
-
+            get { return _recherche;}
+            set
+            {
+                _recherche = value;
+                RaisePropertyChanged();
+            }
         }
+
     }
 }
