@@ -11,12 +11,12 @@ using Xamarin.Forms.Xaml;
 namespace ProjetCesiXamarin.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TableauDeBordPage : ContentPage
+    public partial class RessourcesMisCotePage : ContentPage
     {
-        public TableauDeBordPage()
+        public RessourcesMisCotePage()
         {
             InitializeComponent();
-            BindingContext = new TableauDeBordViewModel("");
+            BindingContext = new TableauDeBordViewModel("miscote");
         }
     }
 }

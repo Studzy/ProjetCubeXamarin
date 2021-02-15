@@ -5,13 +5,13 @@
     <ContentPage.Content>
         <StackLayout>
             <Button Text="Ressources favorites"
-                    HorizontalOptions="FillAndExpand"/>
+                    HorizontalOptions="FillAndExpand" Command="{Binding NavigateToRessourcesFavoritesPageCommand}"/>
             <Button Text="Ressources exploitées"
-                    HorizontalOptions="FillAndExpand"/>
+                    HorizontalOptions="FillAndExpand" Command="{Binding NavigateToRessourcesExploitePageCommand}"/>
             <Button Text="Ressources mises de côté"
-                    HorizontalOptions="FillAndExpand"/>
+                    HorizontalOptions="FillAndExpand" Command="{Binding NavigateToRessourcesMisCotePageCommand}"/>
             <Button Text="Ressources créées"
-                    HorizontalOptions="FillAndExpand"/>
+                    HorizontalOptions="FillAndExpand" Command="{Binding NavigateToRessourcesCreesPageCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -16,6 +16,16 @@ namespace ProjetCesiXamarin.Models
         public int NombrePages { get; set; }
         public string Recherche { get; set; }
 
-        public ObservableCollection<RessourceData> Ressources { get; set; }
+        public ObservableCollection<RessourceTableauBord> Ressources { get; set; }
+    }
+
+    public class RessourceTableauBord
+    {
+        public int Id { get; set; }
+        public string Titre { get; set; }
+        public Statut Statut { get; set; }
+        public CategorieData Categorie { get; set; }
+        public TypeRessourceData TypeRessource { get; set; }
+        public List<TypeRelationRessourceData> TypeRelationsRessources { get; set; }
     }
 }

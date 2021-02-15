@@ -31,14 +31,14 @@ namespace ProjetCesiXamarin.ViewModels
         {
             //_navigationService = navigationService;
 
-            LoggoutCommand = new RelayCommand(() => Loggout());
+            LoggoutCommand = new RelayCommand(async() => await LoggoutAsync());
             Task.Factory.StartNew(new Func<Task>(async () => await InitData())).Unwrap().Wait();
             //Task.Factory.StartNew(()=> TabVisible());
 
             Routing.RegisterRoute("ressource", typeof(Ressource));
         }
 
-        private void Loggout()
+        private async Task LoggoutAsync()
         {
             SecureStorage.Remove("token");
             SecureStorage.Remove("expiration");
@@ -50,6 +50,7 @@ namespace ProjetCesiXamarin.ViewModels
             menuItem.IsEnabled = false;
             menuItem.Text = "";
             menuItem.IconImageSource = "";
+            await Shell.Current.GoToAsync("//Accueil");
         }
 
         async Task InitData()

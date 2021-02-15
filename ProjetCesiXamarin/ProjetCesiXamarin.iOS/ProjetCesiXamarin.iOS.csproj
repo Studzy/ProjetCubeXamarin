@@ -175,4 +175,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\Logout.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Board.png" />
+  </ItemGroup>
 </Project>

@@ -23,12 +23,7 @@
                 Route="Consultation"
                 ContentTemplate="{DataTemplate local:Consultation}"/>
         </Tab>
-        <Tab Icon="Create.png" Title="Création" FlyoutItem.IsVisible="False" x:Name="Creation">
-            <ShellContent
-                Route="CreationRessourcePage"
-                ContentTemplate="{DataTemplate local:CreationRessourcePage}"/>
-        </Tab>
-        <Tab Icon="Create.png" Title="Tableau de bord" FlyoutItem.IsVisible="False" x:Name="Board">
+        <Tab Icon="Board.png" Title="Tableau de bord" FlyoutItem.IsVisible="False" x:Name="Board">
             <ShellContent
                 Route="TableauDeBordPage"
                 ContentTemplate="{DataTemplate local:TableauDeBordPage}"/>
