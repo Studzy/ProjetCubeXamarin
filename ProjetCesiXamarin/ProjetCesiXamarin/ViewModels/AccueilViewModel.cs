@@ -20,16 +20,16 @@ namespace ProjetCesiXamarin.ViewModels
 {
     public class AccueilViewModel : ViewModelBase
     {
-        private readonly INavigationService _navigationService;
+        //private readonly INavigationService _navigationService;
 
         public ObservableCollection<RessourceAccueil> _dernieresRessources;
         public ObservableCollection<RessourceAccueil> _ressourcePlusConsultees;
 
         public ICommand TappedItemCommand { get; set; }
 
-        public AccueilViewModel(INavigationService navigationService)
+        public AccueilViewModel()//(INavigationService navigationService)
         {
-            _navigationService = navigationService;
+            //_navigationService = navigationService;
 
             Task.Run(new Func<Task>(() => InitData()));  
             TappedItemCommand = new RelayCommand<RessourceAccueil>(async (ressource) => await NavigateToTappedItem(ressource));

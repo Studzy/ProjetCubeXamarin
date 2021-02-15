@@ -5,7 +5,7 @@
              xmlns:controls="clr-namespace:XamForms.HtmlLabel;assembly=XamForms.HtmlLabel"
              x:Class="ProjetCesiXamarin.Pages.Accueil"
              x:Name="AccueilView">
-    
+
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Dernières ressources mises en lignes"

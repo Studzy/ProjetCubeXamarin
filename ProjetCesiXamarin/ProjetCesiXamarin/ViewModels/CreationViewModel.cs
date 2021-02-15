@@ -12,11 +12,11 @@ namespace ProjetCesiXamarin.ViewModels
 {
     public class CreationViewModel : ViewModelBase
     {
-        private readonly INavigationService _navigationService;
+        //private readonly INavigationService _navigationService;
 
-        public CreationViewModel(INavigationService navigationService)
+        public CreationViewModel()//(INavigationService navigationService)
         {
-            _navigationService = navigationService;
+            //_navigationService = navigationService;
             Task.Run(new Func<Task>(() => InitData()));
         }
 

@@ -14,16 +14,12 @@ namespace ProjetCesiXamarin.Services
         {
             Tab resultTab = Shell.Current.FindByName<Tab>("Profil");
             resultTab.IsVisible = true;
-            resultTab = Shell.Current.FindByName<Tab>("Creation");
-            resultTab.IsVisible = true;
             resultTab = Shell.Current.FindByName<Tab>("Accueil");
             resultTab.IsVisible = true;
             resultTab = Shell.Current.FindByName<Tab>("Consultation");
             resultTab.IsVisible = true;
-            //resultTab = Shell.Current.FindByName<Tab>("Deconnection");
-            //resultTab.IsVisible = true;
-            //MenuItem menuItem = Shell.Current.FindByName<MenuItem>("Deconnection");
-            //menuItem.IsEnabled = true;
+            resultTab = Shell.Current.FindByName<Tab>("Board");
+            resultTab.IsVisible = true;
             resultTab = Shell.Current.FindByName<Tab>("Connection");
             resultTab.IsVisible = false;
             resultTab = Shell.Current.FindByName<Tab>("Inscription");
@@ -37,14 +33,12 @@ namespace ProjetCesiXamarin.Services
         {
             Tab resultTab = Shell.Current.FindByName<Tab>("Profil");
             resultTab.IsVisible = false;
-            resultTab = Shell.Current.FindByName<Tab>("Creation");
+            resultTab = Shell.Current.FindByName<Tab>("Board");
             resultTab.IsVisible = false;
             resultTab = Shell.Current.FindByName<Tab>("Accueil");
             resultTab.IsVisible = true;
             resultTab = Shell.Current.FindByName<Tab>("Consultation");
             resultTab.IsVisible = true;
-            //MenuItem menuItem = Shell.Current.FindByName<MenuItem>("Deconnection");
-            //menuItem.IsEnabled = false;
             resultTab = Shell.Current.FindByName<Tab>("Connection");
             resultTab.IsVisible = true;
             resultTab = Shell.Current.FindByName<Tab>("Inscription");

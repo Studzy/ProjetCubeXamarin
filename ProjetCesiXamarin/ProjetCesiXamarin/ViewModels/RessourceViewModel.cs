@@ -59,6 +59,7 @@ namespace ProjetCesiXamarin.ViewModels
             }
         }
 
+        
         public RessourceViewModel()
         {
             _ressourceServices = new RessourceServices();
@@ -130,6 +131,7 @@ namespace ProjetCesiXamarin.ViewModels
 
             CommentaireEntry = string.Empty;
         }
+
 
         private async Task CheckUserIsConnected()
         {

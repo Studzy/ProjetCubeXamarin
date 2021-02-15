@@ -25,21 +25,21 @@ namespace ProjetCesiXamarin
         }
         public App()
         {
+            Device.SetFlags(new string[] { "MediaElement_Experimental"}) ;
             InitializeComponent();
 
-            NavigationService navigationService = new NavigationService();
+            //NavigationService navigationService = new NavigationService();
 
-            navigationService.Configure("Home", typeof(MainPage));
-            navigationService.Configure("Inscription", typeof(Inscription));
-            navigationService.Configure("Ressource", typeof(Ressource));
-            navigationService.Configure("Connection", typeof(Connection));
-            navigationService.Configure("Accueil", typeof(Accueil));
-            navigationService.Configure("Consultation", typeof(Consultation));
+            //navigationService.Configure("Home", typeof(MainPage));
+            //navigationService.Configure("Inscription", typeof(Inscription));
+            //navigationService.Configure("Ressource", typeof(Ressource));
+            //navigationService.Configure("Connection", typeof(Connection));
+            //navigationService.Configure("Accueil", typeof(Accueil));
 
-            SimpleIoc.Default.Register<INavigationService>(() => navigationService);
+            //SimpleIoc.Default.Register<INavigationService>(() => navigationService);
 
-            var firstPage = new NavigationPage(new Accueil());
-            navigationService.Initialize(firstPage);
+            //var firstPage = new NavigationPage(new Accueil());
+            //navigationService.Initialize(firstPage);
             //MainPage = firstPage;
 
             MainPage = new MainPage();

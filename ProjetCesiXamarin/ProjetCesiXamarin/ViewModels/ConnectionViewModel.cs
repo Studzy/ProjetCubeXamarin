@@ -23,7 +23,7 @@ namespace ProjetCesiXamarin.ViewModels
         AccountService _accountService = new AccountService();
         VisibleService _visibleService = new VisibleService();
 
-        public ConnectionViewModel(INavigationService navigationService)
+        public ConnectionViewModel()//(INavigationService navigationService)
         {
             //_navigationService = navigationService;
             NavigateToInscriptionCommand = new RelayCommand(async () => await NavigateToInscription());
