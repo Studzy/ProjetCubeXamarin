@@ -34,6 +34,7 @@ namespace ProjetCesiXamarin
             navigationService.Configure("Ressource", typeof(Ressource));
             navigationService.Configure("Connection", typeof(Connection));
             navigationService.Configure("Accueil", typeof(Accueil));
+            navigationService.Configure("Consultation", typeof(Consultation));
 
             SimpleIoc.Default.Register<INavigationService>(() => navigationService);
 

@@ -6,8 +6,8 @@
     <Shell.SearchHandler>
         <SearchHandler x:Name="searchBar"
                        Placeholder="Rechercher une ressource..."
-                       Command="{Binding PerformSearch}"
-                       CommandParameter="{Binding Query, Source={x:Reference searchBar}}"/>
+                       Command="{Binding RechercheCommand}"
+                       CommandParameter="{Binding Textsearch, Source={x:Reference searchBar}}"/>
     </Shell.SearchHandler>
     
     <ContentPage.Content>
