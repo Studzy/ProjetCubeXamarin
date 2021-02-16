@@ -7,12 +7,14 @@ using ProjetCesiXamarin.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration;
 
 namespace ProjetCesiXamarin.ViewModels
 {
@@ -35,6 +37,7 @@ namespace ProjetCesiXamarin.ViewModels
         private string _ressourceId;
         bool _isRefreshing;
         bool isRefreshingInterne = false;
+        private bool _isPdf;
 
         public ICommand RefreshCommand { get; set; }
         public ICommand FavorisCommand { get; set; }
@@ -59,7 +62,6 @@ namespace ProjetCesiXamarin.ViewModels
             }
         }
 
-        
         public RessourceViewModel()
         {
             _ressourceServices = new RessourceServices();
@@ -132,7 +134,6 @@ namespace ProjetCesiXamarin.ViewModels
             CommentaireEntry = string.Empty;
         }
 
-
         private async Task CheckUserIsConnected()
         {
             if (await SecureStorage.GetAsync("token") != null && await SecureStorage.GetAsync("user") != null)
@@ -145,7 +146,7 @@ namespace ProjetCesiXamarin.ViewModels
             }
         }
 
-        private async Task RefreshView()
+        public async Task RefreshView()
         {
             if (!isRefreshingInterne)
             {
@@ -154,6 +155,21 @@ namespace ProjetCesiXamarin.ViewModels
 
                 var ressourceComplete = await new RessourceServices().GetRessourceByIdAsync(int.Parse(_ressourceId));
                 await CheckUserIsConnected();
+
+                if (ressourceComplete.TypeRessource.Nom.Contains("PDF"))
+                {
+                    string file = ressourceComplete.ContenuOriginal.Substring(ressourceComplete.ContenuOriginal.IndexOf("||") + 2);
+                    file = file.Substring(file.LastIndexOf("/") + 1);
+                    PdfPath = $"https://projetcesi.azurewebsites.net/uploads/{file}";
+
+                    string substring = ressourceComplete.Contenu.Substring(ressourceComplete.Contenu.IndexOf("/uploads"), ressourceComplete.Contenu.IndexOf("pdf") + 3 - ressourceComplete.Contenu.IndexOf("/uploads"));
+
+                    ressourceComplete.Contenu = ressourceComplete.Contenu.Replace(substring, PdfPath);
+
+                    IsPdf = true;
+                }
+                else
+                    IsPdf = false;
 
                 Ressource = ressourceComplete;
                 Categorie = ressourceComplete.Categorie.Nom;
@@ -180,6 +196,27 @@ namespace ProjetCesiXamarin.ViewModels
 
                 IsRefreshing = false;
                 isRefreshingInterne = false;
+            }
+        }
+
+        private string _pdfPath;
+        public string PdfPath
+        {
+            get { return _pdfPath; }
+            set
+            {
+                _pdfPath = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public bool IsPdf
+        {
+            get { return _isPdf; }
+            set
+            {
+                _isPdf = value;
+                RaisePropertyChanged();
             }
         }
 
