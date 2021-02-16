@@ -42,21 +42,16 @@ namespace ProjetCesiXamarin.ViewModels
 
                     var ResultRegister = await _registerService.Register("api/AccountAPI/Register", registerData);
 
-                    if (ResultRegister)
+                    if (ResultRegister.Item1)
                     {
                         await Shell.Current.GoToAsync("//Connection");
                     }
-
+                    else
+                    {
+                        await Application.Current.MainPage.DisplayAlert("Erreur", ResultRegister.Item2, "Ok");
+                    }
                 }
             }
-            else
-            {
-                //Temperature = "No Internet";
-                //ColorText = "Red";
-                
-
-            }
-
         }
 
         private string _username;

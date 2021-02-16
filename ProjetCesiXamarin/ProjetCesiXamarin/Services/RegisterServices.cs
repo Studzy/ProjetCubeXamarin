@@ -16,9 +16,10 @@ namespace ProjetCesiXamarin.Services
         /// </summary>
         /// <param name="uri"></param>
         /// <returns></returns>
-        public async Task<bool> Register(string uri, RegisterData registerData)
+        public async Task<Tuple<bool, string>> Register(string uri, RegisterData registerData)
         {
             bool result = false;
+            string message = null;
             string json = JsonConvert.SerializeObject(registerData);
             StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
             try
@@ -28,7 +29,16 @@ namespace ProjetCesiXamarin.Services
                 {
                     string resultat = await response.Content.ReadAsStringAsync();
                     var data = JsonConvert.DeserializeObject<BaseResponse<LoginResponse>>(resultat);
-                    result = true;
+
+                    if (data.StatusCode == 200)
+                    {
+                        result = true;
+                    }
+                    else
+                    {
+                        message = data.Message;
+                        result = false;
+                    }
                 }
                 else
                 {
@@ -37,10 +47,11 @@ namespace ProjetCesiXamarin.Services
             }
             catch (Exception ex)
             {
+                message = "Une erreur inconnue est surevenue.";
                 Debug.WriteLine("\tERROR {0}", ex.Message);
             }
 
-            return result;
+            return Tuple.Create(result, message);
         }
     }
 }
