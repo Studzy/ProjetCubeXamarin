@@ -24,7 +24,7 @@
                                                 <Grid.RowDefinitions>
                                                     <RowDefinition Height="Auto"/>
                                                     <RowDefinition Height="Auto"/>
-                                                    <RowDefinition Height="110"/>
+                                                    <RowDefinition Height="80"/>
                                                 </Grid.RowDefinitions>
                                                 <Label Grid.Row="1" Text="{Binding Titre}" TextColor="Black" FontSize="20" FontAttributes="Bold" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Margin="10"  />
                                                 <controls:HtmlLabel Grid.Row="2" Text="{Binding Apercu}" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" Margin="10" TextColor="Black"/>
@@ -62,7 +62,7 @@
                                                 <Grid.RowDefinitions>
                                                     <RowDefinition Height="Auto"/>
                                                     <RowDefinition Height="Auto"/>
-                                                    <RowDefinition Height="110"/>
+                                                    <RowDefinition Height="80"/>
                                                 </Grid.RowDefinitions>
                                                 <Label Grid.Row="1" Text="{Binding Titre}" TextColor="Black" FontSize="20" FontAttributes="Bold" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Margin="10"  />
                                                 <controls:HtmlLabel Grid.Row="2" Text="{Binding Apercu}" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" Margin="10" TextColor="Black"/>

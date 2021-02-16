@@ -15,13 +15,20 @@ namespace ProjetCesiXamarin.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Ressource : TabbedPage
     {
+        RessourceViewModel ressourceViewModel;
 
         public Ressource()
         {
             InitializeComponent();
 
-            BindingContext = App.Locator.RessourceViewModel;
+            BindingContext = ressourceViewModel = new RessourceViewModel();
         }
 
+        protected override void OnAppearing()
+        {
+            Task.Run(new Func<Task>(async () => await ressourceViewModel.RefreshView()));
+
+            base.OnAppearing();
+        }
     }
 }
