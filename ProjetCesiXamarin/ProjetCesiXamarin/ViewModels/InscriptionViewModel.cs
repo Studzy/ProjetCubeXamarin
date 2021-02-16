@@ -16,24 +16,14 @@ namespace ProjetCesiXamarin.ViewModels
 {
     public class InscriptionViewModel : ViewModelBase
     {
-        private readonly INavigationService _navigationService;
         RegisterServices _registerService = new RegisterServices();
 
-        public ICommand NavigateToInscriptionCommand { get; set; }
         public ICommand RegisterUserCommand { get; set; }
 
-        public InscriptionViewModel()//(INavigationService navigationService)
+        public InscriptionViewModel()
         {
-            //_navigationService = navigationService;
-            NavigateToInscriptionCommand = new RelayCommand(() => NavigateToInscription());
             RegisterUserCommand = new RelayCommand(() => RegisterUser());
         }
-
-        public void NavigateToInscription()
-        {
-            _navigationService.NavigateTo("Inscription");
-        }
-
         /// <summary>
         /// Inscription
         /// </summary>
@@ -45,11 +35,6 @@ namespace ProjetCesiXamarin.ViewModels
             {
                 if (!string.IsNullOrWhiteSpace(Username) && !string.IsNullOrWhiteSpace(Email) && !string.IsNullOrWhiteSpace(Password) && !string.IsNullOrWhiteSpace(PasswordConfirm))
                 {
-                    //OpenWeatherData weatherData = await _OWService.GetWeatherDataAsync(GenerateRequestUri(OpenWeatherConstants.OpenWeatherMapEndpoint));
-                    //Temperature = weatherData.Main.Temperature.ToString();
-                    //Temperature = Temperature + " °C";
-                    //ColorText = "Green";
-
                     registerData.Username = Username;
                     registerData.Email = Email;
                     registerData.Password = Password;
@@ -59,9 +44,6 @@ namespace ProjetCesiXamarin.ViewModels
 
                     if (ResultRegister)
                     {
-                        //Application.Current.MainPage = new Connection();
-                        //await Shell.Current.GoToAsync("//Pages/Connection");
-                        //await Shell.Current.GoToAsync($"{nameof(Connection)}");
                         await Shell.Current.GoToAsync("//Connection");
                     }
 

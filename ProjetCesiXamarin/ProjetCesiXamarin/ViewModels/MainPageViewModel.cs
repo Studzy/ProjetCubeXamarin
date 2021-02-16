@@ -26,15 +26,10 @@ namespace ProjetCesiXamarin.ViewModels
 
         public ICommand LoggoutCommand { get; set; }
 
-        //public MainPageViewModel(INavigationService navigationService)
         public MainPageViewModel()
         {
-            //_navigationService = navigationService;
-
             LoggoutCommand = new RelayCommand(async() => await LoggoutAsync());
             Task.Factory.StartNew(new Func<Task>(async () => await InitData())).Unwrap().Wait();
-            //Task.Factory.StartNew(()=> TabVisible());
-
             Routing.RegisterRoute("ressource", typeof(Ressource));
         }
 

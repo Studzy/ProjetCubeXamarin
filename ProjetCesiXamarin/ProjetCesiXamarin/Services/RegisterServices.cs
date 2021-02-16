@@ -28,8 +28,6 @@ namespace ProjetCesiXamarin.Services
                 {
                     string resultat = await response.Content.ReadAsStringAsync();
                     var data = JsonConvert.DeserializeObject<BaseResponse<LoginResponse>>(resultat);
-                    //string content = await response.Content.ReadAsStringAsync();
-                    //Register = JsonConvert.DeserializeObject<RegisterData>(content);
                     result = true;
                 }
                 else

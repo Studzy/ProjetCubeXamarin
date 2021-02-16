@@ -13,10 +13,12 @@ namespace ProjetCesiXamarin.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TableauDeBordPage : ContentPage
     {
+
         public TableauDeBordPage()
         {
             InitializeComponent();
             BindingContext = new TableauDeBordViewModel("");
         }
+
     }
 }

@@ -16,23 +16,19 @@ namespace ProjetCesiXamarin.ViewModels
 {
     public class ConnectionViewModel : ViewModelBase
     {
-        //private readonly INavigationService _navigationService;
-
         public ICommand NavigateToInscriptionCommand { get; set; }
         public ICommand LoginUserCommand { get; set; }
         AccountService _accountService = new AccountService();
         VisibleService _visibleService = new VisibleService();
 
-        public ConnectionViewModel()//(INavigationService navigationService)
+        public ConnectionViewModel()
         {
-            //_navigationService = navigationService;
             NavigateToInscriptionCommand = new RelayCommand(async () => await NavigateToInscription());
             LoginUserCommand = new RelayCommand(() => Login());
         }
 
         public async Task NavigateToInscription()
         {
-            //_navigationService.NavigateTo("Inscription");
             await Shell.Current.GoToAsync("//Inscription");
         }
 
