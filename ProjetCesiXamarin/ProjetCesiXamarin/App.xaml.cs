@@ -27,7 +27,6 @@ namespace ProjetCesiXamarin
         {
             InitializeComponent();
 
-
             MainPage = new MainPage();
         }
 

@@ -26,7 +26,7 @@ namespace ProjetCesiXamarin.Pages
 
         protected override void OnAppearing()
         {
-            Task.Run(new Func<Task>(async () => await ressourceViewModel.RefreshView()));
+            //Task.Run(new Func<Task>(async () => await ressourceViewModel.RefreshView()));
 
             base.OnAppearing();
         }
